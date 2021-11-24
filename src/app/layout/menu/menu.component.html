@@ -1,0 +1,32 @@
+<div class="menu-init">
+  <div class="background-menu">
+    <button title="Menu" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>
+        <mat-icon>paid</mat-icon>
+        <span>Preços</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>pets</mat-icon>
+        <span>Serviços</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>public</mat-icon>
+        <span>Social</span>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>forum</mat-icon>
+        <span>Comentários</span>
+      </button>
+    </mat-menu>
+    <button mat-icon-button class="direction-right">
+      <mat-icon title="Cadastro">account_circle</mat-icon>
+    </button>
+  </div>
+  <div class="logo-menu-position">
+    <img src="https://cdn.discordapp.com/attachments/825581495259103262/912811554997690428/DogWalkers.png" alt="Logo DogWalkers">
+  </div>
+</div>
+
