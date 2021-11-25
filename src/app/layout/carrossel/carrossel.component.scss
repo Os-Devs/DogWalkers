@@ -1,0 +1,11 @@
+mdb-carousel-item img {
+  min-height: 50vh;
+  max-height: 60vh;
+  object-fit: cover;
+}
+
+@media (min-width: 320px) {
+  .d-sm-block {
+    display: block !important;
+  }
+}
