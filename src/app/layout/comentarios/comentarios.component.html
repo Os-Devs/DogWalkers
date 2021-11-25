@@ -1,20 +1,24 @@
 <div class="centralizar">
-  <mat-form-field appearance="fill">
-    <mat-label>E-mail</mat-label>
-    <input matInput required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
-  </mat-form-field>
-  <mat-form-field appearance="fill">
-    <mat-label>Textarea</mat-label>
-    <textarea matInput></textarea>
-  </mat-form-field>
-
-  <button
-    type="submit"
-    mat-raised-button
-    mat-icon-button
-    (click)="inserirComentario()"
-  >
-    <mat-icon>send</mat-icon>
-  </button>
+  <div class="example-container">
+    <mat-form-field appearance="fill">
+      <mat-label>E-mail</mat-label>
+      <input matInput placeholder="example@example.com" [formControl]="email">
+      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Comentário</mat-label>
+      <textarea matInput></textarea>
+    </mat-form-field>
+    <button
+      type="submit"
+      mat-raised-button
+      mat-icon-button
+      (click)="inserirComentario()"
+    >
+      <mat-icon>send</mat-icon>
+    </button>
+  </div>
 </div>
+
+
 

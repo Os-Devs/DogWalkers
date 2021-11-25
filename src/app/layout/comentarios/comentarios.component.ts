@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from "@angular/forms";
+import { Comentario } from "../../../shared/model/comentario";
 
 @Component({
   selector: 'app-comentarios',
@@ -6,8 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./comentarios.component.scss']
 })
 export class ComentariosComponent implements OnInit {
+  comentarios = new Array<Comentario>();
 
-  constructor() { }
+  email = new FormControl('', [Validators.required,
+    Validators.email]);
+
+  constructor() {
+  }
+
+  getErrorMessage() {
+    if (this.email.hasError('required')) {
+      return "Preencha um valor ao campo"
+    }
+
+    return this.email.hasError('email') ? "Email inválido" : "";
+  }
 
   ngOnInit(): void {
   }
@@ -15,4 +30,9 @@ export class ComentariosComponent implements OnInit {
   inserirComentario() {
 
   }
+
+  listarComentarios() {
+
+  }
+
 }

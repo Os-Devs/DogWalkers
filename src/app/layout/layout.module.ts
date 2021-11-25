@@ -13,7 +13,7 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSelectModule } from "@angular/material/select";
 import { MatOptionModule } from "@angular/material/core";
 import { MatInputModule } from "@angular/material/input";
-import { FormsModule } from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -22,21 +22,22 @@ import { FormsModule } from "@angular/forms";
     MenuComponent,
     ComentariosComponent
   ],
-  imports: [
-    CommonModule,
-    MatMenuModule,
-    MatButtonModule,
-    MatIconModule,
-    MatButtonModule,
-    MatCardModule,
-    MatFormFieldModule,
-    MdbCheckboxModule,
-    MdbCarouselModule,
-    MatSelectModule,
-    MatOptionModule,
-    MatInputModule,
-    FormsModule
-  ],
+    imports: [
+        CommonModule,
+        MatMenuModule,
+        MatButtonModule,
+        MatIconModule,
+        MatButtonModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MdbCheckboxModule,
+        MdbCarouselModule,
+        MatSelectModule,
+        MatOptionModule,
+        MatInputModule,
+        FormsModule,
+        ReactiveFormsModule
+    ],
   exports: [
     MenuComponent,
     CarrosselComponent,
