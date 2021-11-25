@@ -1,11 +1,25 @@
+@media (min-width: 320px) {
+  .d-sm-block {
+    display: block !important;
+  }
+}
+
 mdb-carousel-item img {
   min-height: 50vh;
   max-height: 60vh;
   object-fit: cover;
 }
+.carousel-caption {
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
 
-@media (min-width: 320px) {
-  .d-sm-block {
-    display: block !important;
-  }
+.carousel-text-content {
+  color: whitesmoke;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: rgba($color: #2F3954, $alpha: 0.6);
 }
