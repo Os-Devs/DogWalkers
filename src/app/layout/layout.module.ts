@@ -13,7 +13,7 @@ import { MdbCarouselModule } from "mdb-angular-ui-kit/carousel";
 
 @NgModule({
   declarations: [
-    CarrosselComponent
+    CarrosselComponent,
     MenuComponent
   ],
   imports: [
@@ -22,12 +22,12 @@ import { MdbCarouselModule } from "mdb-angular-ui-kit/carousel";
     MatButtonModule,
     MatIconModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
     MdbCheckboxModule,
     MdbCarouselModule
   ],
   exports: [
-    MenuComponent
+    MenuComponent,
     CarrosselComponent
   ]
 })
