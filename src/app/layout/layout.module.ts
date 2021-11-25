@@ -8,12 +8,14 @@ import { MatCardModule } from "@angular/material/card";
 import { CarrosselComponent } from './carrossel/carrossel.component';
 import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 import { MdbCarouselModule } from "mdb-angular-ui-kit/carousel";
+import { PriceComponent } from './price/price.component';
 
 
 @NgModule({
   declarations: [
     CarrosselComponent,
-    MenuComponent
+    MenuComponent,
+    PriceComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +29,8 @@ import { MdbCarouselModule } from "mdb-angular-ui-kit/carousel";
   ],
   exports: [
     MenuComponent,
-    CarrosselComponent
+    CarrosselComponent,
+    PriceComponent
   ]
 })
 export class LayoutModule { }

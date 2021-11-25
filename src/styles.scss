@@ -9,5 +9,10 @@
 // MDB SCSS
 @import "~mdb-angular-ui-kit/assets/scss/mdb.scss";
 
+:root {
+  --blue-dark: #2F3954;
+  --blue-light: #445379;
+}
+
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
