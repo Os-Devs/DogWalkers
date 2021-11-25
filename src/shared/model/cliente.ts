@@ -5,12 +5,12 @@ export class Cliente {
   private _nome: string;
   private _cpf: string;
   private _dataNasc: Date;
-  private _telefone: number;
+  private _telefone: string;
   private _senha: string;
   private _endereco: Endereco;
   protected _cachorros: Array<Cachorro>;
 
-  constructor(nome: string, cpf: string, nasc: Date, telefone: number,senha: string,
+  constructor(nome: string, cpf: string, nasc: Date, telefone: string,senha: string,
               rua: string, bairro: string, cep: string, numero: number) {
     this._nome = nome;
     this._cpf = cpf;
@@ -45,11 +45,11 @@ export class Cliente {
     this._dataNasc = newDate;
   }
 
-  get getTelefone(): number {
+  get getTelefone(): string {
     return this._telefone;
   }
 
-  set setTelefone(newTelefone: number) {
+  set setTelefone(newTelefone: string) {
     this._telefone = newTelefone;
   }
 
