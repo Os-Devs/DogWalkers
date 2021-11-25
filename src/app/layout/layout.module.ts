@@ -10,7 +10,6 @@ import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 import { MdbCarouselModule } from "mdb-angular-ui-kit/carousel";
 
 
-
 @NgModule({
   declarations: [
     CarrosselComponent,

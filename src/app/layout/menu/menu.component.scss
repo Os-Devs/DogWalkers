@@ -16,17 +16,25 @@
 }
 
 .logo-menu-position {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  z-index: 99;
   width: 12vh;
   min-width: 60px;
-  margin-top: -5vh;
+  margin-top: 5vh;
   overflow: hidden;
   border: 5px solid #fff;
   border-radius: 100%;
-  margin-right: auto;
-  margin-left: auto;
 }
 
 .menu-init .logo-menu-position img {
   border-radius: 100%;
   width: 100%;
+}
+
+.mat-icon {
+  color: white;
 }
