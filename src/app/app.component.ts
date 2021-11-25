@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import {PrestadorServico} from "../shared/model/prestadorServico";
 
 @Component({
   selector: 'app-root',
