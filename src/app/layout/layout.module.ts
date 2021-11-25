@@ -8,12 +8,19 @@ import { MatCardModule } from "@angular/material/card";
 import { CarrosselComponent } from './carrossel/carrossel.component';
 import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 import { MdbCarouselModule } from "mdb-angular-ui-kit/carousel";
+import { ComentariosComponent } from './comentarios/comentarios.component';
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatSelectModule } from "@angular/material/select";
+import { MatOptionModule } from "@angular/material/core";
+import { MatInputModule } from "@angular/material/input";
+import { FormsModule } from "@angular/forms";
 
 
 @NgModule({
   declarations: [
     CarrosselComponent,
-    MenuComponent
+    MenuComponent,
+    ComentariosComponent
   ],
   imports: [
     CommonModule,
@@ -22,12 +29,18 @@ import { MdbCarouselModule } from "mdb-angular-ui-kit/carousel";
     MatIconModule,
     MatButtonModule,
     MatCardModule,
+    MatFormFieldModule,
     MdbCheckboxModule,
-    MdbCarouselModule
+    MdbCarouselModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatInputModule,
+    FormsModule
   ],
   exports: [
     MenuComponent,
-    CarrosselComponent
+    CarrosselComponent,
+    ComentariosComponent
   ]
 })
 export class LayoutModule { }
