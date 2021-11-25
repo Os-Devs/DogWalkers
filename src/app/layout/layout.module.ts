@@ -9,13 +9,16 @@ import { CarrosselComponent } from './carrossel/carrossel.component';
 import { MdbCheckboxModule } from 'mdb-angular-ui-kit/checkbox';
 import { MdbCarouselModule } from "mdb-angular-ui-kit/carousel";
 import { PlanosComponent } from './planos/planos.component';
+import { MapaComponent } from './mapa/mapa.component';
+import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
   declarations: [
     CarrosselComponent,
     MenuComponent,
-    PlanosComponent
+    PlanosComponent,
+    MapaComponent
   ],
   imports: [
     CommonModule,
@@ -25,12 +28,16 @@ import { PlanosComponent } from './planos/planos.component';
     MatButtonModule,
     MatCardModule,
     MdbCheckboxModule,
-    MdbCarouselModule
+    MdbCarouselModule,
+    AgmCoreModule.forRoot({
+      apiKey: ''
+    })
   ],
   exports: [
     MenuComponent,
     CarrosselComponent,
-    PlanosComponent
+    PlanosComponent,
+    MapaComponent
   ]
 })
 export class LayoutModule { }
