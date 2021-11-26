@@ -13,6 +13,11 @@ import { MapaComponent } from './mapa/mapa.component';
 import { AgmCoreModule } from '@agm/core';
 import { PlanosDetalhesComponent } from './planos-detalhes/planos-detalhes.component';
 import { MatTabsModule } from "@angular/material/tabs";
+import { CadastroComponent } from './cadastro/cadastro.component';
+import { FormsModule } from "@angular/forms";
+import { MatFormFieldModule } from "@angular/material/form-field";
+import { MatCheckboxModule } from "@angular/material/checkbox";
+import { MatInputModule } from "@angular/material/input";
 
 
 @NgModule({
@@ -21,7 +26,8 @@ import { MatTabsModule } from "@angular/material/tabs";
     MenuComponent,
     PlanosComponent,
     MapaComponent,
-    PlanosDetalhesComponent
+    PlanosDetalhesComponent,
+    CadastroComponent
   ],
   imports: [
     CommonModule,
@@ -35,14 +41,19 @@ import { MatTabsModule } from "@angular/material/tabs";
     AgmCoreModule.forRoot({
       apiKey: ''
     }),
-    MatTabsModule
+    MatTabsModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatCheckboxModule,
+    MatInputModule
   ],
     exports: [
         MenuComponent,
         CarrosselComponent,
         PlanosComponent,
         MapaComponent,
-        PlanosDetalhesComponent
+        PlanosDetalhesComponent,
+        CadastroComponent
     ]
 })
 export class LayoutModule { }
