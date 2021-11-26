@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from "@angular/forms";
-import { Comentario } from "../../../shared/model/comentario";
+import { Comentario } from "../../shared/model/comentario";
+import {ComentarioService} from "../../shared/service/serviceComentario/comentario.service";
+
 
 @Component({
   selector: 'app-comentarios',
@@ -13,7 +15,7 @@ export class ComentariosComponent implements OnInit {
   email = new FormControl('', [Validators.required,
     Validators.email]);
 
-  constructor() {
+  constructor(private comentarioService: ComentarioService) {
   }
 
   getErrorMessage() {
@@ -25,13 +27,12 @@ export class ComentariosComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.comentarioService.listarComentarios().subscribe(
+      comments => this.comentarios = comments
+    );
   }
 
   inserirComentario() {
-
-  }
-
-  listarComentarios() {
 
   }
 
