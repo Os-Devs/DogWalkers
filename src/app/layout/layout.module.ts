@@ -11,6 +11,8 @@ import { MdbCarouselModule } from "mdb-angular-ui-kit/carousel";
 import { PlanosComponent } from './planos/planos.component';
 import { MapaComponent } from './mapa/mapa.component';
 import { AgmCoreModule } from '@agm/core';
+import { PlanosDetalhesComponent } from './planos-detalhes/planos-detalhes.component';
+import { MatTabsModule } from "@angular/material/tabs";
 
 
 @NgModule({
@@ -18,7 +20,8 @@ import { AgmCoreModule } from '@agm/core';
     CarrosselComponent,
     MenuComponent,
     PlanosComponent,
-    MapaComponent
+    MapaComponent,
+    PlanosDetalhesComponent
   ],
   imports: [
     CommonModule,
@@ -31,13 +34,15 @@ import { AgmCoreModule } from '@agm/core';
     MdbCarouselModule,
     AgmCoreModule.forRoot({
       apiKey: ''
-    })
+    }),
+    MatTabsModule
   ],
-  exports: [
-    MenuComponent,
-    CarrosselComponent,
-    PlanosComponent,
-    MapaComponent
-  ]
+    exports: [
+        MenuComponent,
+        CarrosselComponent,
+        PlanosComponent,
+        MapaComponent,
+        PlanosDetalhesComponent
+    ]
 })
 export class LayoutModule { }

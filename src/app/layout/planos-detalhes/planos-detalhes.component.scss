@@ -1,0 +1,41 @@
+mat-tab-group {
+  background-color: var(--blue-light);
+  color: white;
+  background:
+    linear-gradient(135deg, var(--blue-light) 21px, #FFFFFF66 22px, #FFFFFF66 24px, transparent 24px, transparent 67px, #FFFFFF66 67px, #FFFFFF66 69px, transparent 69px),
+    linear-gradient(225deg, var(--blue-light) 21px, #FFFFFF66 22px, #FFFFFF66 24px, transparent 24px, transparent 67px, #FFFFFF66 67px, #FFFFFF66 69px, transparent 69px)0 64px;
+  background-color: var(--blue-light);
+  background-size: 64px 128px;
+}
+
+.container-flex {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.large-box {
+  height: 300px;
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 16px;
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.item-standard {
+  background-color: var(--card-st);
+  color: black;
+}
+
+.item-standard-plus {
+  background-color: var(--card-st-plus);
+}
+
+.item-gold {
+  background-color: var(--card-gold);
+  color: black;
+}
