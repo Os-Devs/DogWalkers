@@ -1,22 +1,29 @@
 <div class="centralizar">
   <div class="example-container">
-    <mat-form-field appearance="fill">
-      <mat-label>E-mail</mat-label>
-      <input matInput placeholder="example@example.com" [formControl]="email">
-      <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
-    </mat-form-field>
-    <mat-form-field appearance="fill">
-      <mat-label>Comentário</mat-label>
-      <textarea matInput></textarea>
-    </mat-form-field>
-    <button
-      type="submit"
-      mat-raised-button
-      mat-icon-button
-      (click)="inserirComentario()"
-    >
-      <mat-icon>send</mat-icon>
-    </button>
+    <mat-card class="mat-elevation-z6">
+      <mat-card-title style="text-align:center;">Comentários</mat-card-title>
+      <mat-card-content>
+          <mat-form-field appearance="fill">
+            <mat-label>E-mail</mat-label>
+            <input matInput placeholder="example@example.com" [formControl]="email">
+            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="fill">
+            <mat-label>Comentário</mat-label>
+            <textarea matInput></textarea>
+          </mat-form-field>
+          <div class="button-centralizar">
+          <button
+            type="submit"
+            mat-raised-button
+            mat-icon-button
+            (click)="inserirComentario()"
+          >
+            <mat-icon>send</mat-icon>
+          </button>
+        </div>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>
 

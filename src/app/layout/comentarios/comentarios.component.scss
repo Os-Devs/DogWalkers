@@ -2,5 +2,31 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin-top: 3rem;
+  background-color: var(--blue-light);
+  width: 100%;
+  padding: 2rem;
+}
+
+mat-card {
+  background-color: var(--blue-dark);
+  width: 30vw;
+  min-width: fit-content;
+  margin: 10% auto;
+  border-radius: 8px;
+
+}
+
+mat-form-field, mat-checkbox {
+  width: 80%;
+  display: block;
+  margin: auto;
+}
+
+mat-card-content {
+  margin-top: 1rem;
+}
+
+.button-centralizar {
+  display: flex;
+  justify-content: center;
 }
