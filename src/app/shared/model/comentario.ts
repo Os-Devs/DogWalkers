@@ -1,26 +1,26 @@
 export class Comentario {
 
-  private _email: string;
-  private _comentario: string;
+  private email: string;
+  private comentario: string;
 
   constructor(email: string, comentario: string) {
-    this._email = email;
-    this._comentario = comentario;
+    this.email = email;
+    this.comentario = comentario;
   }
 
   get getEmail(): string {
-    return this._email;
+    return this.email;
   }
 
   set setEmail(newEmail: string) {
-    this._email = newEmail;
+    this.email = newEmail;
   }
 
   get getComentario(): string {
-    return this._comentario;
+    return this.comentario;
   }
 
-  set setComentaario(newComentario: string) {
-    this._comentario = newComentario;
+  set setComentario(newComentario: string) {
+    this.comentario = newComentario;
   }
 }

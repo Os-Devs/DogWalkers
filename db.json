@@ -1,11 +1,5 @@
 {
-  "clientes": [
-
-  ],
-  "prestadores": [
-
-  ],
-  "comentarios": [
-
-  ]
+  "clientes": [],
+  "prestadores": [],
+  "comentarios": []
 }

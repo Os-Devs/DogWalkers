@@ -1,23 +1,28 @@
 <div class="centralizar">
   <div class="example-container">
     <mat-card class="mat-elevation-z6">
-      <mat-card-title style="text-align:center;">Comentários</mat-card-title>
+      <mat-card-title>Comentários</mat-card-title>
       <mat-card-content>
-          <mat-form-field appearance="fill">
+          <mat-form-field [formGroup]="validations" appearance="fill">
             <mat-label>E-mail</mat-label>
-            <input matInput placeholder="example@example.com" [formControl]="email">
-            <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+            <input #mail matInput placeholder="example@example.com" formControlName="email">
+            <mat-error *ngIf="validations.controls.email.hasError('email')">Email inválido</mat-error>
+            <mat-error *ngIf="validations.controls.email.hasError('required')">Preencha o campo</mat-error>
           </mat-form-field>
-          <mat-form-field appearance="fill">
+          <mat-form-field [formGroup]="validations" appearance="fill">
             <mat-label>Comentário</mat-label>
-            <textarea matInput></textarea>
+            <textarea #comment formControlName="comentarios" matInput></textarea>
+            <mat-error *ngIf="validations.controls.comentarios.hasError('required')">
+              Preencha o campo
+            </mat-error>
           </mat-form-field>
           <div class="button-centralizar">
           <button
             type="submit"
             mat-raised-button
             mat-icon-button
-            (click)="inserirComentario()"
+            (click)="inserirComentario(mail.value, comment.value, mail, comment)"
+            [disabled]="!validations.valid"
           >
             <mat-icon>send</mat-icon>
           </button>
@@ -26,4 +31,3 @@
     </mat-card>
   </div>
 </div>
-

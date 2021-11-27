@@ -16,10 +16,14 @@ mat-card {
 
 }
 
+mat-card-title {
+  text-align: center;
+}
+
 mat-form-field, mat-checkbox {
   width: 80%;
   display: block;
-  margin: auto;
+  margin-bottom: 1rem;
 }
 
 mat-card-content {
@@ -28,5 +32,11 @@ mat-card-content {
 
 .button-centralizar {
   display: flex;
+  justify-content: center;
+}
+
+.meiota {
+  display: flex;
+  flex-wrap: wrap;
   justify-content: center;
 }
