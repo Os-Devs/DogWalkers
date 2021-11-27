@@ -8,7 +8,7 @@ import { PrestadorServico } from "../../model/prestadorServico";
 })
 export class PrestadorService {
 
-  URL_PRESTADOR = "";
+  URL_PRESTADOR = "http://localhost:3000/prestadores";
 
   constructor(private httpClient: HttpClient) { }
 

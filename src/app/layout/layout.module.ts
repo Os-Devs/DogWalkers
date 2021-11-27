@@ -21,6 +21,8 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSelectModule } from "@angular/material/select";
 import { MatOptionModule } from "@angular/material/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
+import { RouterModule } from "@angular/router";
+import { PrincipalComponent } from './principal/principal.component';
 
 
 @NgModule({
@@ -31,7 +33,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     MapaComponent,
     PlanosDetalhesComponent,
     CadastroComponent,
-    ComentariosComponent
+    ComentariosComponent,
+    PrincipalComponent
   ],
   imports: [
     CommonModule,
@@ -53,7 +56,8 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
     MatSelectModule,
     MatOptionModule,
     MatInputModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   exports: [
     MenuComponent,

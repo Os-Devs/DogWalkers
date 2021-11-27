@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from "@angular/forms";
 import { Comentario } from "../../shared/model/comentario";
-import {ComentarioService} from "../../shared/service/serviceComentario/comentario.service";
-
+import { ComentarioService } from "../../shared/service/serviceComentario/comentario.service";
 
 @Component({
   selector: 'app-comentarios',

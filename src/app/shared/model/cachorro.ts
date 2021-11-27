@@ -1,18 +1,14 @@
-import { Cliente } from "./cliente";
-
 export class Cachorro {
   private _nome: string;
   private _peso: number;
   private _porte: string;
   private _raca: string;
-  protected _donos: Array<Cliente>;
 
   constructor(nome: string, peso: number, porte: string, raca: string) {
     this._nome = nome;
     this._peso = peso;
     this._porte = porte;
     this._raca = raca;
-    this._donos = new Array<Cliente>();
   }
 
   get getNome(): String {
@@ -47,41 +43,13 @@ export class Cachorro {
     this._raca = newRaca;
   }
 
-  get getDonos(): Array<Cliente> {
-    return this._donos;
-  }
-
-  addDono(dono: Cliente) {
-    this._donos.push(dono);
-  }
-
-  removeDono(dono: Cliente) {
-    this._donos.find(
-      remover => {
-        if (remover === dono) {
-          const indexRemover = this._donos.indexOf(remover);
-          if (indexRemover > -1) {
-            this._donos.splice(indexRemover, 1);
-          }
-        }
-      }
-    );
-  }
-
   toString(): string {
     let output: string;
 
     output = `Nome: ${this.getNome}
 Peso: ${this.getPeso}
 Porte: ${this.getPorte}
-Raça: ${this.getRaca}
-Donos: `;
-
-    this._donos.forEach(
-      dono => {
-        output += `${dono.getNome} `
-      }
-    );
+Raça: ${this.getRaca}`;
 
     return output;
   }
