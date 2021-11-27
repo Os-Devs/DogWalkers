@@ -14,4 +14,8 @@ export class ClienteService {
   listarClientes(): Observable<Cliente[]> {
     return this.httpClient.get<Cliente[]>("");
   }
+
+  inserirCliente(cliente: Cliente): Observable<Cliente> {
+    return this.httpClient.post<Cliente>("", cliente);
+  }
 }
