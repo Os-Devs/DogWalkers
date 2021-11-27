@@ -23,6 +23,7 @@ import { MatOptionModule } from "@angular/material/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { PrincipalComponent } from './principal/principal.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -34,7 +35,8 @@ import { PrincipalComponent } from './principal/principal.component';
     PlanosDetalhesComponent,
     CadastroComponent,
     ComentariosComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -66,7 +68,8 @@ import { PrincipalComponent } from './principal/principal.component';
     MapaComponent,
     PlanosDetalhesComponent,
     CadastroComponent,
-    ComentariosComponent
+    ComentariosComponent,
+    FooterComponent
   ]
 })
 export class LayoutModule { }
