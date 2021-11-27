@@ -8,10 +8,16 @@ import { Cliente } from "../../model/cliente";
 })
 export class ClienteService {
 
+  URL_CLIENTE = "";
+
   constructor(private httpClient: HttpClient) {
   }
 
   listarClientes(): Observable<Cliente[]> {
-    return this.httpClient.get<Cliente[]>("");
+    return this.httpClient.get<Cliente[]>(this.URL_CLIENTE);
+  }
+
+  inserirCliente(cliente: Cliente): Observable<Cliente> {
+    return this.httpClient.post<Cliente>(this.URL_CLIENTE, cliente);
   }
 }

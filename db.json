@@ -1,31 +1,11 @@
 {
-  "assets": [
-    {
-      "id": 1,
-      "title": "Assets 1"
-    },
-    {
-      "id": 2,
-      "title": "Assets 2"
-    },
-    {
-      "id": 3,
-      "title": "Assets 3"
-    }
+  "clientes": [
+
   ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment assets",
-      "postId": 1
-    },
-    {
-      "id": 2,
-      "body": "some comment assets",
-      "postId": 1
-    }
+  "prestadores": [
+
   ],
-  "profile": {
-    "name": "plareset assets"
-  }
+  "comentarios": [
+
+  ]
 }

@@ -14,16 +14,13 @@ import { AgmCoreModule } from '@agm/core';
 import { PlanosDetalhesComponent } from './planos-detalhes/planos-detalhes.component';
 import { MatTabsModule } from "@angular/material/tabs";
 import { CadastroComponent } from './cadastro/cadastro.component';
-import { FormsModule } from "@angular/forms";
-import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatCheckboxModule } from "@angular/material/checkbox";
 import { MatInputModule } from "@angular/material/input";
 import { ComentariosComponent } from './comentarios/comentarios.component';
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatSelectModule } from "@angular/material/select";
 import { MatOptionModule } from "@angular/material/core";
-import { MatInputModule } from "@angular/material/input";
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 
 @NgModule({
@@ -33,7 +30,7 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     PlanosComponent,
     MapaComponent,
     PlanosDetalhesComponent,
-    CadastroComponent
+    CadastroComponent,
     ComentariosComponent
   ],
   imports: [
@@ -52,20 +49,20 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     FormsModule,
     MatFormFieldModule,
     MatCheckboxModule,
-    MatInputModule
-        MatSelectModule,
-        MatOptionModule,
-        MatInputModule,
-        ReactiveFormsModule
+    MatInputModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatInputModule,
+    ReactiveFormsModule
   ],
-    exports: [
-        MenuComponent,
-        CarrosselComponent,
-        PlanosComponent,
-        MapaComponent,
-        PlanosDetalhesComponent,
-        CadastroComponent
+  exports: [
+    MenuComponent,
+    CarrosselComponent,
+    PlanosComponent,
+    MapaComponent,
+    PlanosDetalhesComponent,
+    CadastroComponent,
     ComentariosComponent
-    ]
+  ]
 })
 export class LayoutModule { }

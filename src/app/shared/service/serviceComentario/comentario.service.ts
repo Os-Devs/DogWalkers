@@ -7,18 +7,17 @@ import {Comentario} from "../../model/comentario";
   providedIn: 'root'
 })
 export class ComentarioService {
-  //Url do banco Json para os comentários;
 
-  URL_Comment = "";
+  URL_COMENTARIO = "";
 
   constructor(private httpClient: HttpClient) {
   }
 
   listarComentarios(): Observable<Comentario[]>{
-    return this.httpClient.get<Comentario[]>("");
+    return this.httpClient.get<Comentario[]>(this.URL_COMENTARIO);
   }
 
   inserirComentario(comentario: Comentario): Observable<Comentario> {
-    return this.httpClient.post<Comentario>("", comentario);
+    return this.httpClient.post<Comentario>(this.URL_COMENTARIO, comentario);
   }
 }
