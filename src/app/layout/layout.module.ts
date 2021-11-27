@@ -22,22 +22,22 @@ import {FormsModule, ReactiveFormsModule} from "@angular/forms";
     MenuComponent,
     ComentariosComponent
   ],
-  imports: [
-      CommonModule,
-      MatMenuModule,
-      MatButtonModule,
-      MatIconModule,
-      MatButtonModule,
-      MatCardModule,
-      MatFormFieldModule,
-      MdbCheckboxModule,
-      MdbCarouselModule,
-      MatSelectModule,
-      MatOptionModule,
-      MatInputModule,
-      FormsModule,
-      ReactiveFormsModule
-  ],
+    imports: [
+        CommonModule,
+        MatMenuModule,
+        MatButtonModule,
+        MatIconModule,
+        MatButtonModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MdbCheckboxModule,
+        MdbCarouselModule,
+        MatSelectModule,
+        MatOptionModule,
+        MatInputModule,
+        FormsModule,
+        ReactiveFormsModule
+    ],
   exports: [
     MenuComponent,
     CarrosselComponent,
