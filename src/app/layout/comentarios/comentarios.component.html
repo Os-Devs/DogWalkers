@@ -31,3 +31,8 @@
     </mat-card>
   </div>
 </div>
+
+<mat-card *ngFor="let comentario of comentarios">
+  <mat-card-title>{{comentario.email}}</mat-card-title>
+  <mat-card-subtitle>{{comentario.comentario}}</mat-card-subtitle>
+</mat-card>
