@@ -10,7 +10,7 @@ export class Cliente {
   private _endereco: Endereco;
   protected _cachorros: Array<Cachorro>;
 
-  constructor(nome: string, cpf: string, nasc: Date, telefone: string,senha: string,
+  constructor(nome: string, cpf: string, nasc: Date, telefone: string, senha: string,
               rua: string, bairro: string, cep: string, numero: number) {
     this._nome = nome;
     this._cpf = cpf;
