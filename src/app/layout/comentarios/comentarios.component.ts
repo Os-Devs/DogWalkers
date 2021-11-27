@@ -32,10 +32,7 @@ export class ComentariosComponent implements OnInit {
 
   ngOnInit(): void {
     this.comentarioService.listarComentarios().subscribe(
-      comments => {
-        this.comentarios = comments
-        console.log(this.comentarios)
-      }
+      comments => this.comentarios = comments
     );
   }
 

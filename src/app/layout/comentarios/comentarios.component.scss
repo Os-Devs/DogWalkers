@@ -7,13 +7,12 @@
   padding: 2rem;
 }
 
-mat-card {
+.example-container mat-card {
   background-color: var(--blue-dark);
   width: 30vw;
   min-width: fit-content;
   margin: 10% auto;
   border-radius: 8px;
-
 }
 
 mat-card-title {
@@ -30,13 +29,21 @@ mat-card-content {
   margin-top: 1rem;
 }
 
-.button-centralizar {
-  display: flex;
-  justify-content: center;
-}
-
 .meiota {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comment {
+  background-color: var(--blue-dark);
+  display: flex;
   justify-content: center;
+  flex-wrap: wrap;
+}
+
+.background-comment {
+  background-color: var(--blue-light);
+  width: 30%;
+  margin: 2rem;
 }
