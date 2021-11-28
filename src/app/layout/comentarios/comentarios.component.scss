@@ -17,12 +17,13 @@
 
 mat-card-title {
   text-align: center;
+  margin: 1rem 0 1rem 0 ;
 }
 
 mat-form-field, mat-checkbox {
   width: 80%;
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 mat-card-content {
@@ -35,15 +36,21 @@ mat-card-content {
   align-items: center;
 }
 
-.comment {
+.background-comment {
   background-color: var(--blue-dark);
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.background-comment {
+.comment {
   background-color: var(--blue-light);
-  width: 30%;
+  width: 30vw;
+  min-width: max-content;
   margin: 2rem;
+}
+
+.comment mat-card-title mat-card-subtitle {
+  width: 80%;
+  display: block;
 }
