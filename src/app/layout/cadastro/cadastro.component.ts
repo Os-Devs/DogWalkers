@@ -6,10 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./cadastro.component.scss']
 })
 export class CadastroComponent implements OnInit {
-
+  hide = true;
   constructor() { }
 
   ngOnInit(): void {
+
   }
 
 }

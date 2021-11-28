@@ -23,6 +23,10 @@ import { MatOptionModule } from "@angular/material/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { PrincipalComponent } from './principal/principal.component';
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from '@angular/material/core';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatExpansionModule} from '@angular/material/expansion';
 
 
 @NgModule({
@@ -57,7 +61,11 @@ import { PrincipalComponent } from './principal/principal.component';
     MatOptionModule,
     MatInputModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatDividerModule,
+    MatExpansionModule
   ],
   exports: [
     MenuComponent,
