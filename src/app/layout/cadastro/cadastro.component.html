@@ -5,59 +5,73 @@
     <mat-tab-group mat-stretch-tabs class="example-stretched-tabs">
       <mat-tab label="Prestador de Serviço">
         <mat-card-content>
-          <form action="">
+          <form action="" [formGroup]="validations">
             <h3>Pessoal</h3>
             <mat-divider></mat-divider>
             <mat-form-field>
               <input
+                #nomePrest
                 matInput
                 placeholder="Nome"
-                required
-                name="username"
-                ngModel
-                #username="ngModel">
+                formControlName="nome"
+              >
               <mat-icon matSuffix>perm_identity</mat-icon>
               <mat-error
-                *ngIf="username.invalid">
+                *ngIf="validations.controls.nome.hasError('required')">
                 Nome é necessário
               </mat-error>
 
             </mat-form-field>
             <mat-form-field>
               <input
+                #cpf
                 matInput
                 placeholder="CPF"
-                required
-                name="cpf"
-                ngModel
-                #cpf="ngModel">
+                formControlName="cpf"
+              >
               <mat-icon matSuffix>assignment_ind</mat-icon>
               <mat-error
-                *ngIf="cpf.invalid">
+                *ngIf="validations.controls.cpf.hasError('required')">
                 CPF é necessário
               </mat-error>
-
+              <mat-error *ngIf="validations.controls.cpf.hasError('pattern')">
+                Siga o padrão: xxx.xxx.xxx-xx
+              </mat-error>
             </mat-form-field>
 
             <mat-form-field >
               <mat-label>Data de Nascimento</mat-label>
-              <input matInput [matDatepicker]="picker">
+              <input
+                #dataNasc
+                matInput
+                [matDatepicker]="picker"
+                formControlName="dataNasc"
+              >
               <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
+              <mat-error *ngIf="validations.controls.dataNasc.hasError('required')">
+                Data de nascimento é necessário
+              </mat-error>
             </mat-form-field>
 
             <mat-form-field>
               <input
+                #telefone
                 matInput
                 placeholder="Telefone"
-                required
-                name="telefone"
-                ngModel
-                #telefone="ngModel">
-              <mat-error *ngIf="telefone.invalid">Telefone é necessário</mat-error>
+                formControlName="telefone"
+              >
+              <mat-error *ngIf="validations.controls.telefone.hasError('required')">
+                Telefone é necessário
+              </mat-error>
+              <mat-error *ngIf="validations.controls.telefone.hasError('minLength')">
+                Quantidades de dígitos inválido para um número telefônico
+              </mat-error>
+              <mat-error *ngIf="validations.controls.telefone.hasError('pattern')">
+                Número telefônico inválido
+              </mat-error>
               <mat-icon matSuffix>phone</mat-icon>
             </mat-form-field>
-
             <div class="top-endereço">
               <h3>Endereço</h3>
               <mat-divider></mat-divider>
@@ -192,256 +206,255 @@
             <button
               mat-raised-button
               color="accent"
-              class="login-button">
-              Cadastrar
-            </button>
-
-          </form>
-        </mat-card-content>
-      </mat-tab>
-      <mat-tab label="Dono de Pet">
-        <mat-card-content>
-          <form action="">
-            <h3>Pessoal</h3>
-            <mat-divider></mat-divider>
-            <mat-form-field>
-              <input
-                matInput
-                placeholder="Nome"
-                required
-                name="username"
-                ngModel
-                #username="ngModel">
-              <mat-icon matSuffix>perm_identity</mat-icon>
-              <mat-error
-                *ngIf="username.invalid">
-                Nome é necessário
-              </mat-error>
-
-            </mat-form-field>
-            <mat-form-field>
-              <input
-                matInput
-                placeholder="CPF"
-                required
-                name="cpf"
-                ngModel
-                #cpf="ngModel">
-              <mat-icon matSuffix>assignment_ind</mat-icon>
-              <mat-error
-                *ngIf="cpf.invalid">
-                CPF é necessário
-              </mat-error>
-
-            </mat-form-field>
-            <mat-form-field >
-              <mat-label>Data de Nascimento</mat-label>
-              <input matInput [matDatepicker]="picker">
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
-            </mat-form-field>
-
-            <mat-form-field>
-              <input
-                matInput
-                placeholder="Telefone"
-                required
-                name="telefone"
-                ngModel
-                #telefone="ngModel">
-              <mat-error *ngIf="telefone.invalid">Telefone é necessário</mat-error>
-              <mat-icon matSuffix>phone</mat-icon>
-            </mat-form-field>
-
-            <div class="top-endereço">
-              <h3>Endereço</h3>
-              <mat-divider></mat-divider>
-            </div>
-            <br>
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  Cadastrar Endereço
-                </mat-panel-title>
-                <mat-panel-description>
-                </mat-panel-description>
-
-              </mat-expansion-panel-header>
-              <mat-form-field>
-                <input
-                  matInput
-                  placeholder="Rua"
-                  required
-                  name="Rua"
-                  ngModel
-                  #rua="ngModel">
-                <mat-icon matSuffix>home</mat-icon>
-                <mat-error
-                  *ngIf="rua.invalid">
-                  Rua é necessário
-                </mat-error>
-              </mat-form-field>
-              <div class="container">
-                <mat-form-field>
-                  <input
-                    matInput
-                    placeholder="Bairro"
-                    required
-                    name="Bairro"
-                    ngModel
-                    #bairro="ngModel">
-                  <mat-error
-                    *ngIf="bairro.invalid">
-                    Bairro é necessário
-                  </mat-error>
-                </mat-form-field>
-                <mat-form-field>
-                  <input
-                    matInput
-                    placeholder="Numero"
-                    required
-                    name="Numero"
-                    ngModel
-                    #numero="ngModel">
-                  <mat-error
-                    *ngIf="numero.invalid">
-                    Numero é necessário
-                  </mat-error>
-
-                </mat-form-field>
-              </div>
-
-              <mat-form-field>
-                <input
-                  matInput
-                  placeholder="CEP"
-                  required
-                  name="CEP"
-                  ngModel
-                  #cep="ngModel">
-                <mat-error
-                  *ngIf="cep.invalid">
-                  CEP é necessário
-                </mat-error>
-
-              </mat-form-field>
-            </mat-expansion-panel>
-
-            <div class="top-pet">
-              <h3>PET</h3>
-              <mat-divider></mat-divider>
-            </div>
-            <br>
-            <mat-expansion-panel>
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  Cadastrar PET
-                </mat-panel-title>
-                <mat-panel-description>
-                  <mat-icon>pets</mat-icon>
-                </mat-panel-description>
-              </mat-expansion-panel-header>
-              <div class="container">
-                <mat-form-field>
-                  <input
-                    matInput
-                    placeholder="Nome do PET"
-                    name="nomePet">
-                </mat-form-field>
-                <mat-form-field>
-                  <input
-                    matInput
-                    placeholder="Raça"
-                    name="raça">
-                </mat-form-field>
-              </div>
-              <div class="container">
-                <mat-form-field>
-                  <mat-label>Porte</mat-label>
-                  <mat-select>
-                    <mat-option value="option">Pequeno</mat-option>
-                    <mat-option value="option">Médio</mat-option>
-                    <mat-option value="option">Grande</mat-option>
-                  </mat-select>
-                </mat-form-field>
-                <mat-form-field>
-                  <input
-                    matInput
-                    type="number"
-                    placeholder="Peso"
-                    name="peso">
-                </mat-form-field>
-              </div>
-
-            </mat-expansion-panel>
-
-            <div class="top-conta">
-              <h3>Conta</h3>
-              <mat-divider></mat-divider>
-            </div>
-
-            <mat-form-field>
-              <input
-                matInput
-                placeholder="Email"
-                required
-                name="email"
-                ngModel
-                #email="ngModel">
-              <mat-error *ngIf="email.invalid">Email é necessário</mat-error>
-              <mat-icon matSuffix>email</mat-icon>
-            </mat-form-field>
-            <mat-form-field>
-              <input
-                matInput
-                placeholder="Senha"
-                type="password"
-                required
-                minlength="6"
-                name="password"
-                ngModel
-                #password="ngModel"
-                [type]="hide ? 'password' : 'text'">
-              <mat-error
-                *ngIf="password.errors && password.errors.required">
-                Senha é necessário
-              </mat-error>
-              <mat-error
-                *ngIf="password.errors && password.errors.minlength">
-                Tamanho de senha minima é 6 caracteres
-              </mat-error>
-              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-              </button>
-            </mat-form-field>
-            <mat-form-field>
-              <input
-                matInput
-                placeholder="Repita a senha"
-                type="password"
-                required
-                minlength="6"
-                name="repassword"
-                ngModel
-                #repassword="ngModel"
-                [type]="hide ? 'password' : 'text'">
-              <mat-error
-                *ngIf="repassword.errors && repassword.errors.required">
-                Reinserir é necessário
-              </mat-error>
-              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-              </button>
-            </mat-form-field>
-            <button
-              mat-raised-button
-              color="accent"
-              class="login-button">
-              Cadastrar
+              class="login-button"
+              (click)="inserirPrestador()"
+            >
             </button>
           </form>
         </mat-card-content>
       </mat-tab>
+<!--      <mat-tab label="Dono de Pet">-->
+<!--        <mat-card-content>-->
+<!--          <form action="">-->
+<!--            <h3>Pessoal</h3>-->
+<!--            <mat-divider></mat-divider>-->
+<!--            <mat-form-field>-->
+<!--              <input-->
+<!--                matInput-->
+<!--                placeholder="Nome"-->
+<!--                required-->
+<!--                name="username"-->
+<!--                ngModel-->
+<!--                #username="ngModel">-->
+<!--              <mat-icon matSuffix>perm_identity</mat-icon>-->
+<!--              <mat-error-->
+<!--                *ngIf="username.invalid">-->
+<!--                Nome é necessário-->
+<!--              </mat-error>-->
+
+<!--            </mat-form-field>-->
+<!--            <mat-form-field>-->
+<!--              <input-->
+<!--                matInput-->
+<!--                placeholder="CPF"-->
+<!--                required-->
+<!--                name="cpf"-->
+<!--                ngModel-->
+<!--                #cpf="ngModel">-->
+<!--              <mat-icon matSuffix>assignment_ind</mat-icon>-->
+<!--              <mat-error-->
+<!--                *ngIf="cpf.invalid">-->
+<!--                CPF é necessário-->
+<!--              </mat-error>-->
+
+<!--            </mat-form-field>-->
+<!--            <mat-form-field >-->
+<!--              <mat-label>Data de Nascimento</mat-label>-->
+<!--              <input matInput [matDatepicker]="picker">-->
+<!--              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
+<!--              <mat-datepicker #picker></mat-datepicker>-->
+<!--            </mat-form-field>-->
+
+<!--            <mat-form-field>-->
+<!--              <input-->
+<!--                matInput-->
+<!--                placeholder="Telefone"-->
+<!--                required-->
+<!--                name="telefone"-->
+<!--                ngModel-->
+<!--                #telefone="ngModel">-->
+<!--              <mat-error *ngIf="telefone">Telefone é necessário</mat-error>-->
+<!--              <mat-icon matSuffix>phone</mat-icon>-->
+<!--            </mat-form-field>-->
+
+<!--            <div class="top-endereço">-->
+<!--              <h3>Endereço</h3>-->
+<!--              <mat-divider></mat-divider>-->
+<!--            </div>-->
+<!--            <br>-->
+<!--            <mat-expansion-panel>-->
+<!--              <mat-expansion-panel-header>-->
+<!--                <mat-panel-title>-->
+<!--                  Cadastrar Endereço-->
+<!--                </mat-panel-title>-->
+<!--                <mat-panel-description>-->
+<!--                </mat-panel-description>-->
+
+<!--              </mat-expansion-panel-header>-->
+<!--              <mat-form-field>-->
+<!--                <input-->
+<!--                  matInput-->
+<!--                  placeholder="Rua"-->
+<!--                  required-->
+<!--                  name="Rua"-->
+<!--                  ngModel-->
+<!--                  #rua="ngModel">-->
+<!--                <mat-icon matSuffix>home</mat-icon>-->
+<!--                <mat-error-->
+<!--                  *ngIf="rua.invalid">-->
+<!--                  Rua é necessário-->
+<!--                </mat-error>-->
+<!--              </mat-form-field>-->
+<!--              <div class="container">-->
+<!--                <mat-form-field>-->
+<!--                  <input-->
+<!--                    matInput-->
+<!--                    placeholder="Bairro"-->
+<!--                    required-->
+<!--                    name="Bairro"-->
+<!--                    ngModel-->
+<!--                    #bairro="ngModel">-->
+<!--                  <mat-error-->
+<!--                    *ngIf="bairro.invalid">-->
+<!--                    Bairro é necessário-->
+<!--                  </mat-error>-->
+<!--                </mat-form-field>-->
+<!--                <mat-form-field>-->
+<!--                  <input-->
+<!--                    matInput-->
+<!--                    placeholder="Numero"-->
+<!--                    required-->
+<!--                    name="Numero"-->
+<!--                    ngModel-->
+<!--                    #numero="ngModel">-->
+<!--                  <mat-error-->
+<!--                    *ngIf="numero.invalid">-->
+<!--                    Numero é necessário-->
+<!--                  </mat-error>-->
+
+<!--                </mat-form-field>-->
+<!--              </div>-->
+
+<!--              <mat-form-field>-->
+<!--                <input-->
+<!--                  matInput-->
+<!--                  placeholder="CEP"-->
+<!--                  required-->
+<!--                  name="CEP"-->
+<!--                  ngModel-->
+<!--                  #cep="ngModel">-->
+<!--                <mat-error-->
+<!--                  *ngIf="cep.invalid">-->
+<!--                  CEP é necessário-->
+<!--                </mat-error>-->
+
+<!--              </mat-form-field>-->
+<!--            </mat-expansion-panel>-->
+
+<!--            <div class="top-pet">-->
+<!--              <h3>PET</h3>-->
+<!--              <mat-divider></mat-divider>-->
+<!--            </div>-->
+<!--            <br>-->
+<!--            <mat-expansion-panel>-->
+<!--              <mat-expansion-panel-header>-->
+<!--                <mat-panel-title>-->
+<!--                  Cadastrar PET-->
+<!--                </mat-panel-title>-->
+<!--                <mat-panel-description>-->
+<!--                  <mat-icon>pets</mat-icon>-->
+<!--                </mat-panel-description>-->
+<!--              </mat-expansion-panel-header>-->
+<!--              <div class="container">-->
+<!--                <mat-form-field>-->
+<!--                  <input-->
+<!--                    matInput-->
+<!--                    placeholder="Nome do PET"-->
+<!--                    name="nomePet">-->
+<!--                </mat-form-field>-->
+<!--                <mat-form-field>-->
+<!--                  <input-->
+<!--                    matInput-->
+<!--                    placeholder="Raça"-->
+<!--                    name="raça">-->
+<!--                </mat-form-field>-->
+<!--              </div>-->
+<!--              <div class="container">-->
+<!--                <mat-form-field>-->
+<!--                  <mat-label>Porte</mat-label>-->
+<!--                  <mat-select>-->
+<!--                    <mat-option value="option">Pequeno</mat-option>-->
+<!--                    <mat-option value="option">Médio</mat-option>-->
+<!--                    <mat-option value="option">Grande</mat-option>-->
+<!--                  </mat-select>-->
+<!--                </mat-form-field>-->
+<!--                <mat-form-field>-->
+<!--                  <input-->
+<!--                    matInput-->
+<!--                    type="number"-->
+<!--                    placeholder="Peso"-->
+<!--                    name="peso">-->
+<!--                </mat-form-field>-->
+<!--              </div>-->
+
+<!--            </mat-expansion-panel>-->
+
+<!--            <div class="top-conta">-->
+<!--              <h3>Conta</h3>-->
+<!--              <mat-divider></mat-divider>-->
+<!--            </div>-->
+
+<!--            <mat-form-field>-->
+<!--              <input-->
+<!--                matInput-->
+<!--                placeholder="Email"-->
+<!--                required-->
+<!--                name="email"-->
+<!--                ngModel-->
+<!--                #email="ngModel">-->
+<!--              <mat-error *ngIf="email.invalid">Email é necessário</mat-error>-->
+<!--              <mat-icon matSuffix>email</mat-icon>-->
+<!--            </mat-form-field>-->
+<!--            <mat-form-field>-->
+<!--              <input-->
+<!--                matInput-->
+<!--                placeholder="Senha"-->
+<!--                type="password"-->
+<!--                required-->
+<!--                minlength="6"-->
+<!--                name="password"-->
+<!--                ngModel-->
+<!--                #password="ngModel"-->
+<!--                [type]="hide ? 'password' : 'text'">-->
+<!--              <mat-error-->
+<!--                *ngIf="password.errors && password.errors.required">-->
+<!--                Senha é necessário-->
+<!--              </mat-error>-->
+<!--              <mat-error-->
+<!--                *ngIf="password.errors && password.errors.minlength">-->
+<!--                Tamanho de senha minima é 6 caracteres-->
+<!--              </mat-error>-->
+<!--              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">-->
+<!--                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>-->
+<!--              </button>-->
+<!--            </mat-form-field>-->
+<!--            <mat-form-field>-->
+<!--              <input-->
+<!--                matInput-->
+<!--                placeholder="Repita a senha"-->
+<!--                type="password"-->
+<!--                required-->
+<!--                minlength="6"-->
+<!--                name="repassword"-->
+<!--                ngModel-->
+<!--                #repassword="ngModel"-->
+<!--                [type]="hide ? 'password' : 'text'">-->
+<!--              <mat-error-->
+<!--                *ngIf="repassword.errors && repassword.errors.required">-->
+<!--                Reinserir é necessário-->
+<!--              </mat-error>-->
+<!--              <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">-->
+<!--                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>-->
+<!--              </button>-->
+<!--            </mat-form-field>-->
+<!--            <button-->
+<!--              mat-raised-button-->
+<!--              color="accent"-->
+<!--              class="login-button">-->
+<!--            </button>-->
+<!--          </form>-->
+<!--        </mat-card-content>-->
+<!--      </mat-tab>-->
     </mat-tab-group>
   </mat-card>
 </div>

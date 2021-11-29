@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import { Comentario } from "../../shared/model/comentario";
 import { ComentarioService } from "../../shared/service/serviceComentario/comentario.service";
 
