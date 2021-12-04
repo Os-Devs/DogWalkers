@@ -36,9 +36,9 @@ export class ComentariosComponent implements OnInit {
     );
   }
 
-  inserirComentario(email: string, comentario: string, elementMail: HTMLInputElement, elementComment: HTMLTextAreaElement) {
-    if (email && comentario) {
-      let comment = new Comentario(email, comentario);
+  inserirComentario(elementMail: HTMLInputElement, elementComment: HTMLTextAreaElement) {
+    if (elementMail.value && elementComment.value) {
+      let comment = new Comentario(elementMail.value, elementComment.value);
       this.comentarios.push(comment);
       this.comentarioService.inserirComentario(comment).subscribe();
     }

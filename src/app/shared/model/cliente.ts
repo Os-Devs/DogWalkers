@@ -3,14 +3,14 @@ import { Endereco } from "./endereco";
 
 export class Cliente {
   public nome: string;
-  public cpf: string;
-  public dataNasc: Date;
+  private cpf: string;
+  public dataNasc: string;
   public telefone: string;
-  public senha: string;
+  private senha: string;
   public endereco: Endereco;
   public cachorros: Array<Cachorro>;
 
-  constructor(nome: string, cpf: string, nasc: Date, telefone: string, senha: string,
+  constructor(nome: string, cpf: string, nasc: string, telefone: string, senha: string,
               rua: string, bairro: string, cep: string, numero: number) {
     this.nome = nome;
     this.cpf = cpf;

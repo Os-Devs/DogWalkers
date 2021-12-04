@@ -21,8 +21,8 @@
             type="submit"
             mat-raised-button
             mat-icon-button
-            (click)="inserirComentario(mail.value, comment.value, mail, comment)"
-            [disabled]="!validations.valid"
+            (click)="inserirComentario(mail, comment)"
+            [disabled]="validations.invalid"
           >
             <mat-icon>send</mat-icon>
           </button>
@@ -35,7 +35,7 @@
 <div class="background-comment">
   <mat-card class="comment" *ngFor="let comentario of comentarios">
     <mat-card-title>{{comentario.email}}</mat-card-title>
-    <mat-card-subtitle>{{comentario.comentario}}</mat-card-subtitle>
+    <mat-card-subtitle>{{comentario.conteudo}}</mat-card-subtitle>
   </mat-card>
 </div>
 
