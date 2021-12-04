@@ -21,7 +21,7 @@
             type="submit"
             mat-raised-button
             mat-icon-button
-            (click)="inserirComentario(mail, comment)"
+            (click)="inserirComentario('1' ,mail.value, comment.value, mail, comment)"
             [disabled]="validations.invalid"
           >
             <mat-icon>send</mat-icon>
