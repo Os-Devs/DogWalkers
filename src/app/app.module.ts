@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from "@angular/common/http";
 import { LayoutModule } from "./layout/layout.module";
+import {FirestoreModule} from "./firestore/firestore.module";
 
 
 @NgModule({
@@ -17,7 +18,8 @@ import { LayoutModule } from "./layout/layout.module";
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    LayoutModule
+    LayoutModule,
+    FirestoreModule
   ],
   providers: [],
   bootstrap: [AppComponent]
