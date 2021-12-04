@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import { Comentario } from "../../shared/model/comentario";
-import { ComentarioService } from "../../shared/service/serviceComentario/comentario.service";
+import { FirestoreComentarioService } from "../../shared/service/serviceFirestoreComentario/firestore-comentario.service";
 
 @Component({
   selector: 'app-comentarios',
@@ -17,7 +17,7 @@ export class ComentariosComponent implements OnInit {
   // email = new FormControl('', [Validators.required,
   //   Validators.email]);
 
-  constructor(private comentarioService: ComentarioService, private formBuilder: FormBuilder) {
+  constructor(private comentarioService: FirestoreComentarioService, private formBuilder: FormBuilder) {
     this.validations = this.formBuilder.group({
       email: [
         '', [
@@ -36,9 +36,9 @@ export class ComentariosComponent implements OnInit {
     );
   }
 
-  inserirComentario(email: string, comentario: string, elementMail: HTMLInputElement, elementComment: HTMLTextAreaElement) {
+  inserirComentario(id: string, email: string, comentario: string, elementMail: HTMLInputElement, elementComment: HTMLTextAreaElement) {
     if (email && comentario) {
-      let comment = new Comentario(email, comentario);
+      let comment = new Comentario(id ,email, comentario);
       this.comentarios.push(comment);
       this.comentarioService.inserirComentario(comment).subscribe();
     }
