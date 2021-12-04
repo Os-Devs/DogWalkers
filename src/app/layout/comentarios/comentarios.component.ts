@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import { Comentario } from "../../shared/model/comentario";
-import { ComentarioService } from "../../shared/service/serviceComentario/comentario.service";
+import { FirestoreComentarioService } from "../../shared/service/serviceFirestoreComentario/firestore-comentario.service";
 
 @Component({
   selector: 'app-comentarios',
@@ -17,7 +17,7 @@ export class ComentariosComponent implements OnInit {
   // email = new FormControl('', [Validators.required,
   //   Validators.email]);
 
-  constructor(private comentarioService: ComentarioService, private formBuilder: FormBuilder) {
+  constructor(private comentarioService: FirestoreComentarioService, private formBuilder: FormBuilder) {
     this.validations = this.formBuilder.group({
       email: [
         '', [

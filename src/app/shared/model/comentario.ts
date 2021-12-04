@@ -1,11 +1,10 @@
 export class Comentario {
-
   public email: string;
-  public comentario: string;
+  public conteudo: string;
 
   constructor(email: string, comentario: string) {
     this.email = email;
-    this.comentario = comentario;
+    this.conteudo = comentario;
   }
 
   // get getEmail(): string {
