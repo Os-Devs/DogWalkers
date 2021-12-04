@@ -28,13 +28,13 @@ export class CadastroComponent implements OnInit {
           '', [Validators.required, Validators.email]
       ],
       cpf: [
-        '', [Validators.required, Validators.pattern("\\d{3}\\.?\\d{3}\\.?\\d{3}-?\\d{2}")]
+        '', [Validators.required, Validators.minLength(11)]
       ],
       dataNasc: [
         '', Validators.required
       ],
       telefone: [
-        '', [Validators.required, Validators.pattern('(\\(?\\d{2}\\)?\\s)?(\\d{4,5}\\-\\d{4})')]
+        '', [Validators.required, Validators.pattern("\\([0-9]{2}\\)[\\s][0-9]{5}-[0-9]{4}")]
       ]
     });
   }

@@ -34,8 +34,8 @@
                 *ngIf="validations.controls.cpf.hasError('required')">
                 CPF é necessário
               </mat-error>
-              <mat-error *ngIf="validations.controls.cpf.hasError('pattern')">
-                Siga o padrão: xxx.xxx.xxx-xx
+              <mat-error *ngIf="validations.controls.cpf.hasError('minlength')">
+                Tamanho de CPF inválido
               </mat-error>
             </mat-form-field>
 
@@ -64,11 +64,8 @@
               <mat-error *ngIf="validations.controls.telefone.hasError('required')">
                 Telefone é necessário
               </mat-error>
-              <mat-error *ngIf="validations.controls.telefone.hasError('minLength')">
-                Quantidades de dígitos inválido para um número telefônico
-              </mat-error>
               <mat-error *ngIf="validations.controls.telefone.hasError('pattern')">
-                Número telefônico inválido
+                Telefone inválido siga o padrão (ddd) xxxxx-xxxx
               </mat-error>
               <mat-icon matSuffix>phone</mat-icon>
             </mat-form-field>
@@ -89,42 +86,40 @@
                 <input
                   matInput
                   placeholder="Rua"
-                  required
-                  name="Rua"
-                  ngModel
-                  #rua="ngModel">
+
+                >
                 <mat-icon matSuffix>home</mat-icon>
-                <mat-error
-                  *ngIf="rua.invalid">
-                  Rua é necessário
-                </mat-error>
+<!--                <mat-error-->
+<!--                  *ngIf="rua.invalid">-->
+<!--                  Rua é necessário-->
+<!--                </mat-error>-->
               </mat-form-field>
               <div class="container">
                 <mat-form-field>
                   <input
                     matInput
-                    placeholder="Bairro"
-                    required
-                    name="Bairro"
-                    ngModel
-                    #bairro="ngModel">
-                  <mat-error
-                    *ngIf="bairro.invalid">
-                    Bairro é necessário
-                  </mat-error>
+                    placeholder="Bairro">
+<!--                    required-->
+<!--                    name="Bairro"-->
+<!--                    ngModel-->
+<!--                    #bairro="ngModel" -->
+<!--                  <mat-error-->
+<!--                    *ngIf="bairro.invalid">-->
+<!--                    Bairro é necessário-->
+<!--                  </mat-error>-->
                 </mat-form-field>
                 <mat-form-field>
                   <input
                     matInput
-                    placeholder="Numero"
-                    required
-                    name="Numero"
-                    ngModel
-                    #numero="ngModel">
-                  <mat-error
-                    *ngIf="numero.invalid">
-                    Numero é necessário
-                  </mat-error>
+                    placeholder="Numero">
+<!--                    required-->
+<!--                    name="Numero"-->
+<!--                    ngModel-->
+<!--                    #numero="ngModel"-->
+<!--                  <mat-error-->
+<!--                    *ngIf="numero.invalid">-->
+<!--                    Numero é necessário-->
+<!--                  </mat-error>-->
 
                 </mat-form-field>
               </div>
@@ -132,15 +127,15 @@
               <mat-form-field>
                 <input
                   matInput
-                  placeholder="CEP"
-                  required
-                  name="CEP"
-                  ngModel
-                  #cep="ngModel">
-                <mat-error
-                  *ngIf="cep.invalid">
-                  CEP é necessário
-                </mat-error>
+                  placeholder="CEP">
+<!--                  required-->
+<!--                  name="CEP"-->
+<!--                  ngModel-->
+<!--                  #cep="ngModel"-->
+<!--                <mat-error-->
+<!--                  *ngIf="cep.invalid">-->
+<!--                  CEP é necessário-->
+<!--                </mat-error>-->
 
               </mat-form-field>
             </mat-expansion-panel>
@@ -152,12 +147,12 @@
             <mat-form-field>
               <input
                 matInput
-                placeholder="Email"
-                required
-                name="email"
-                ngModel
-                #email="ngModel">
-              <mat-error *ngIf="email.invalid">Email é necessário</mat-error>
+                placeholder="Email">
+<!--                required-->
+<!--                name="email"-->
+<!--                ngModel-->
+<!--                #email="ngModel"-->
+<!--              <mat-error *ngIf="email.invalid">Email é necessário</mat-error>-->
               <mat-icon matSuffix>email</mat-icon>
             </mat-form-field>
             <mat-form-field>
@@ -165,20 +160,21 @@
                 matInput
                 placeholder="Senha"
                 type="password"
-                required
                 minlength="6"
-                name="password"
-                ngModel
-                #password="ngModel"
                 [type]="hide ? 'password' : 'text'">
-              <mat-error
-                *ngIf="password.errors && password.errors.required">
-                Senha é necessário
-              </mat-error>
-              <mat-error
-                *ngIf="password.errors && password.errors.minlength">
-                Tamanho de senha minima é 6 caracteres
-              </mat-error>
+<!--                required-->
+<!--                -->
+<!--                name="password"-->
+<!--                ngModel-->
+<!--                #password="ngModel"-->
+<!--              <mat-error-->
+<!--                *ngIf="password.errors && password.errors.required">-->
+<!--                Senha é necessário-->
+<!--              </mat-error>-->
+<!--              <mat-error-->
+<!--                *ngIf="password.errors && password.errors.minlength">-->
+<!--                Tamanho de senha minima é 6 caracteres-->
+<!--              </mat-error>-->
               <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
               </button>
@@ -188,16 +184,18 @@
                 matInput
                 placeholder="Repita a senha"
                 type="password"
-                required
                 minlength="6"
-                name="repassword"
-                ngModel
-                #repassword="ngModel"
                 [type]="hide ? 'password' : 'text'">
-              <mat-error
-                *ngIf="repassword.errors && repassword.errors.required">
-                Reinserir é necessário
-              </mat-error>
+<!--                required-->
+<!--                -->
+<!--                name="repassword"-->
+<!--                ngModel-->
+<!--                #repassword="ngModel"-->
+
+<!--              <mat-error-->
+<!--                *ngIf="repassword.errors && repassword.errors.required">-->
+<!--                Reinserir é necessário-->
+<!--              </mat-error>-->
               <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
               </button>
