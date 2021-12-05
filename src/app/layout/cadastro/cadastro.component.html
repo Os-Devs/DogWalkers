@@ -430,7 +430,7 @@
                 matInput
                 placeholder="Senha"
                 type="password"
-                [type]="hide1 ? 'password' : 'text'"
+                [type]="hide2 ? 'password' : 'text'"
                 formControlName="senha"
               >
               <mat-error *ngIf="validationsCli.controls.senha.hasError('required')">
@@ -439,8 +439,8 @@
               <mat-error *ngIf="validationsCli.controls.senha.hasError('minlength')">
                 Tamanho de senha minima é 6 caracteres
               </mat-error>
-              <button mat-icon-button matSuffix (click)="hide1 = !hide1" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide1">
-                <mat-icon>{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+              <button mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide2">
+                <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
               </button>
             </mat-form-field>
 <!--            <mat-form-field>-->

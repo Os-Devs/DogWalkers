@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import { Cliente } from "../../shared/model/cliente";
-import { PrestadorServico } from "../../shared/model/prestadorServico";
-import { ClienteService } from "../../shared/service/serviceCliente/cliente.service";
-import { PrestadorService } from "../../shared/service/servicePrestador/prestador.service";
+import { Prestador } from "../../shared/model/prestador";
+import {FirestoreClienteService} from "../../shared/service/serviceFirestoreCliente/firestore-cliente.service";
+import {FirestorePrestadorService} from "../../shared/service/serviceFirestorePrestador/firestore-prestador.service";
+
 
 @Component({
   selector: 'app-cadastro',
@@ -13,21 +14,21 @@ import { PrestadorService } from "../../shared/service/servicePrestador/prestado
 export class CadastroComponent implements OnInit {
   type: number;
   clientes = new Array<Cliente>();
-  prestadores = new Array<PrestadorServico>();
+  prestadores = new Array<Prestador>();
   hide1 = true;
   hide2 = true;
 
   validationsPrest: FormGroup;
   validationsCli: FormGroup;
 
-  constructor(private clienteService: ClienteService, private prestadorService: PrestadorService,
+  constructor(private clienteService: FirestoreClienteService, private prestadorService: FirestorePrestadorService,
               private formBuilder: FormBuilder) {
     this.validationsPrest = formBuilder.group({
       nome: [
         '', Validators.required
       ],
       email: [
-          '', [Validators.required, Validators.email]
+        '', [Validators.required, Validators.email]
       ],
       cpf: [
         '', [Validators.required, Validators.minLength(11)]
@@ -99,7 +100,7 @@ export class CadastroComponent implements OnInit {
     this.clienteService.listarClientes().subscribe(
       client => this.clientes = client
     );
-    this.prestadorService.listarPrestador().subscribe(
+    this.prestadorService.listarPrestadores().subscribe(
       prestador => this.prestadores = prestador
     );
   }
@@ -109,7 +110,7 @@ export class CadastroComponent implements OnInit {
                    num: HTMLInputElement, cep: HTMLInputElement, email: HTMLInputElement,
                    senha: HTMLInputElement, horario: HTMLInputElement) {
 
-    let prest = new PrestadorServico(nome.value, cpf.value, dataNasc.value, horario.value,
+    let prest = new Prestador(nome.value, cpf.value, dataNasc.value, horario.value,
       tell.value, senha.value, rua.value, bairro.value, cep.value, Number.parseInt(num.value));
 
 
