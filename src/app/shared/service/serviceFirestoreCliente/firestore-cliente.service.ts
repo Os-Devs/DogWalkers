@@ -1,34 +1,34 @@
 import {Injectable} from '@angular/core';
 import {from, Observable} from 'rxjs';
-import { Comentario } from '../../model/comentario';
+import { Cliente } from '../../model/cliente';
 import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
 //import {map} from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FirestoreComentarioService {
+export class FirestoreClienteService {
 
-  colecaoComentarios: AngularFirestoreCollection<Comentario>;
+  colecaoClientes: AngularFirestoreCollection<Cliente>;
   NOME_COLECAO = 'comentarios';
 
   constructor(private afs: AngularFirestore) {
-    this.colecaoComentarios = afs.collection(this.NOME_COLECAO);
+    this.colecaoClientes = afs.collection(this.NOME_COLECAO);
   }
 
-  listarComentarios(): Observable<Comentario[]> {
+  listarClientes(): Observable<Cliente[]> {
     // usando options para idField para mapear o id gerado pelo firestore para o campo id de usuário
-    return this.colecaoComentarios.valueChanges({idField: 'id'});
+    return this.colecaoClientes.valueChanges({idField: 'id'});
   }
 
-  inserirComentario(comentario: Comentario): Observable<object> {
+  inserirCliente(comentario: Cliente): Observable<object> {
     // Object.assign({}, comentario) é usado para passar um objeto json puro. Não se aceita passar um objeto customizado
     // o from transforma uma promise num Observable, para mantermos a assinatura similar ao do outro service
-    return from(this.colecaoComentarios.add(Object.assign({}, comentario)));
+    return from(this.colecaoClientes.add(Object.assign({}, comentario)));
   }
 
   remover(id: string): Observable<void> {
-    return from(this.colecaoComentarios.doc(id).delete());
+    return from(this.colecaoClientes.doc(id).delete());
   }
 
 }

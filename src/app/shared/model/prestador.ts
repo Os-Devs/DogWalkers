@@ -1,6 +1,6 @@
 import { Cliente } from "./cliente";
 
-export class PrestadorServico extends Cliente {
+export class Prestador extends Cliente {
   public horarioDisponibilidade: string;
 
   constructor(nome: string, cpf: string, nasc: string, horario: string, telefone: string, senha: string,
