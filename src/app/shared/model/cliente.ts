@@ -6,17 +6,19 @@ export class Cliente {
   private cpf: string;
   public dataNasc: string;
   public telefone: string;
+  public email: string;
   private senha: string;
   public endereco: Endereco;
   public cachorros: Array<Cachorro>;
 
-  constructor(nome: string, cpf: string, nasc: string, telefone: string, senha: string,
-              rua: string, bairro: string, cep: string, numero: number) {
+  constructor(nome: string, cpf: string, nasc: string, telefone: string, senha: string, email: string,
+              rua: string, bairro: string, cep: string, numero: string) {
     this.nome = nome;
     this.cpf = cpf;
     this.dataNasc = nasc;
     this.telefone = telefone;
     this.senha = senha;
+    this.email = email;
     this.cachorros = new Array<Cachorro>();
     this.endereco = new Endereco(rua, bairro, cep, numero);
   }

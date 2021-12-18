@@ -21,10 +21,10 @@ export class FirestorePrestadorService {
     return this.colecaoPrestadores.valueChanges({idField: 'id'});
   }
 
-  inserirPrestador(comentario: Prestador): Observable<object> {
+  inserirPrestador(prestador: Prestador): Observable<object> {
     // Object.assign({}, comentario) é usado para passar um objeto json puro. Não se aceita passar um objeto customizado
     // o from transforma uma promise num Observable, para mantermos a assinatura similar ao do outro service
-    return from(this.colecaoPrestadores.add(Object.assign({}, comentario)));
+    return from(this.colecaoPrestadores.add(Object.assign({}, prestador)));
   }
 
   remover(id: string): Observable<void> {
