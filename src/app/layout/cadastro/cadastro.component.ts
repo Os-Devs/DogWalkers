@@ -118,7 +118,7 @@ export class CadastroComponent implements OnInit {
 
     this.prestadores.push(prest);
 
-    this.prestadorService.inserirPrestador(prest);
+    this.prestadorService.inserirPrestador(prest).subscribe();
 
     nome.value, cpf.value, dataNasc.value, horario.value,
       tell.value, senha.value, rua.value, bairro.value, cep.value, num.value = '';
@@ -143,7 +143,7 @@ export class CadastroComponent implements OnInit {
     dog.dono = client;
 
     this.clientes.push(client);
-    this.clienteService.inserirCliente(client);
+    this.clienteService.inserirCliente(client).subscribe();
 
     nome.value, cpf.value, dataNasc.value, tell.value, senha.value, email.value,
       rua.value, bairro.value, cep.value, num.value = '';

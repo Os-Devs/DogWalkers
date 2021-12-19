@@ -46,5 +46,4 @@ export class ComentariosComponent implements OnInit {
     elementMail.value = "";
     elementComment.value = "";
   }
-
 }
