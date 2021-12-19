@@ -12,7 +12,7 @@ export class PrestadorService {
 
   constructor(private httpClient: HttpClient) { }
 
-  listarPrestador(): Observable<Prestador[]> {
+  listarPrestadores(): Observable<Prestador[]> {
     return this.httpClient.get<Prestador[]>(this.URL_PRESTADOR);
   }
 
