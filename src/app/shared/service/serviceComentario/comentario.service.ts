@@ -8,7 +8,7 @@ import { Comentario } from "../../model/comentario";
 })
 export class ComentarioService {
 
-  URL_COMENTARIO = "http://localhost:3000/comentarios";
+  URL_COMENTARIO = "http://localhost:8080/comentarios";
 
   constructor(private httpClient: HttpClient) {
   }

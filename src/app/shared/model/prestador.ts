@@ -3,9 +3,9 @@ import { Cliente } from "./cliente";
 export class Prestador extends Cliente {
   public horarioDisponibilidade: string;
 
-  constructor(nome: string, cpf: string, nasc: string, horario: string, telefone: string, senha: string,
-              rua: string, bairro: string, cep: string, numero: number) {
-    super(nome, cpf, nasc, telefone, senha, rua, bairro, cep, numero);
+  constructor(nome: string, cpf: string, nasc: string, horario: string, telefone: string, email: string,
+              senha: string, rua: string, bairro: string, cep: string, numero: string) {
+    super(nome, cpf, nasc, telefone, senha, email, rua, bairro, cep, numero);
     this.horarioDisponibilidade = horario;
   }
 

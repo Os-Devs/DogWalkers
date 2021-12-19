@@ -4,6 +4,7 @@ import { Cliente } from "../../shared/model/cliente";
 import { Prestador } from "../../shared/model/prestador";
 import {FirestoreClienteService} from "../../shared/service/serviceFirestoreCliente/firestore-cliente.service";
 import {FirestorePrestadorService} from "../../shared/service/serviceFirestorePrestador/firestore-prestador.service";
+import {Cachorro} from "../../shared/model/cachorro";
 
 
 @Component({
@@ -111,12 +112,37 @@ export class CadastroComponent implements OnInit {
                    senha: HTMLInputElement, horario: HTMLInputElement) {
 
     let prest = new Prestador(nome.value, cpf.value, dataNasc.value, horario.value,
-      tell.value, senha.value, rua.value, bairro.value, cep.value, Number.parseInt(num.value));
+      tell.value, senha.value, email.value, rua.value, bairro.value, cep.value, num.value);
 
+    this.prestadores.push(prest);
+
+    this.prestadorService.inserirPrestador(prest);
+
+    nome.value, cpf.value, dataNasc.value, horario.value,
+      tell.value, senha.value, rua.value, bairro.value, cep.value, num.value = '';
 
   }
 
-  inserirCliente() {
+  inserirCliente(nome: HTMLInputElement, cpf: HTMLInputElement, dataNasc: HTMLInputElement,
+                 tell: HTMLInputElement, rua: HTMLInputElement, bairro: HTMLInputElement,
+                 num: HTMLInputElement, cep: HTMLInputElement, email: HTMLInputElement,
+                 senha: HTMLInputElement, nomeDog: HTMLInputElement, racaDog: HTMLInputElement,
+                 pesoDog: HTMLInputElement, porteDog: HTMLSelectElement) {
 
+    let client = new Cliente(nome.value, cpf.value, dataNasc.value, tell.value, senha.value, email.value,
+      rua.value, bairro.value, cep.value, num.value);
+
+    let dog = new Cachorro(nomeDog.value, Number.parseInt(pesoDog.value),
+      porteDog.options[porteDog.selectedIndex].value, racaDog.value);
+
+    client.cachorros.push(dog);
+
+    this.clientes.push(client);
+    this.clienteService.inserirCliente(client);
+
+    nome.value, cpf.value, dataNasc.value, tell.value, senha.value, email.value,
+      rua.value, bairro.value, cep.value, num.value = '';
+
+    nomeDog.value, pesoDog.value, porteDog.value, racaDog.value = '';
   }
 }
