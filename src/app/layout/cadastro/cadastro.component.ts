@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Cliente } from "../../shared/model/cliente";
 import { Prestador } from "../../shared/model/prestador";
-import {Cachorro} from "../../shared/model/cachorro";
-import {ClienteService} from "../../shared/service/serviceCliente/cliente.service";
-import {PrestadorService} from "../../shared/service/servicePrestador/prestador.service";
-import {Endereco} from "../../shared/model/endereco";
+import { Cachorro } from "../../shared/model/cachorro";
+import { ClienteService } from "../../shared/service/serviceCliente/cliente.service";
+import { PrestadorService } from "../../shared/service/servicePrestador/prestador.service";
+import { Endereco } from "../../shared/model/endereco";
 
 
 @Component({
@@ -120,8 +120,16 @@ export class CadastroComponent implements OnInit {
 
     this.prestadorService.inserirPrestador(prest).subscribe();
 
-    nome.value, cpf.value, dataNasc.value, horario.value,
-      tell.value, senha.value, rua.value, bairro.value, cep.value, num.value = '';
+    nome.value = "";
+    cpf.value = "";
+    dataNasc.value = "";
+    horario.value = "";
+    tell.value = "";
+    senha.value = "";
+    rua.value = "";
+    bairro.value = "";
+    cep.value = "";
+    num.value = "";
 
   }
 
@@ -145,9 +153,19 @@ export class CadastroComponent implements OnInit {
     this.clientes.push(client);
     this.clienteService.inserirCliente(client).subscribe();
 
-    nome.value, cpf.value, dataNasc.value, tell.value, senha.value, email.value,
-      rua.value, bairro.value, cep.value, num.value = '';
+    nome.value = "";
+    cpf.value = "";
+    dataNasc.value = "";
+    tell.value = "";
+    senha.value = "";
+    rua.value = "";
+    bairro.value = "";
+    cep.value = "";
+    num.value = "";
 
-    nomeDog.value, pesoDog.value, porteDog.value, racaDog.value = '';
+    nomeDog.value = "";
+    pesoDog.value = "";
+    porteDog.value = "";
+    racaDog.value = "";
   }
 }
