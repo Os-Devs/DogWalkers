@@ -8,11 +8,11 @@ import { Prestador } from "../../model/prestador";
 })
 export class PrestadorService {
 
-  URL_PRESTADOR = "http://localhost:3000/prestadores";
+  URL_PRESTADOR = "http://localhost:8080/prestadores";
 
   constructor(private httpClient: HttpClient) { }
 
-  listarPrestador(): Observable<Prestador[]> {
+  listarPrestadores(): Observable<Prestador[]> {
     return this.httpClient.get<Prestador[]>(this.URL_PRESTADOR);
   }
 

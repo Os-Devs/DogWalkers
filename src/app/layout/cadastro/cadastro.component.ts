@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import { Cliente } from "../../shared/model/cliente";
 import { Prestador } from "../../shared/model/prestador";
-import {FirestoreClienteService} from "../../shared/service/serviceFirestoreCliente/firestore-cliente.service";
-import {FirestorePrestadorService} from "../../shared/service/serviceFirestorePrestador/firestore-prestador.service";
 import {Cachorro} from "../../shared/model/cachorro";
+import {ClienteService} from "../../shared/service/serviceCliente/cliente.service";
+import {PrestadorService} from "../../shared/service/servicePrestador/prestador.service";
+import {Endereco} from "../../shared/model/endereco";
 
 
 @Component({
@@ -22,7 +23,7 @@ export class CadastroComponent implements OnInit {
   validationsPrest: FormGroup;
   validationsCli: FormGroup;
 
-  constructor(private clienteService: FirestoreClienteService, private prestadorService: FirestorePrestadorService,
+  constructor(private clienteService: ClienteService, private prestadorService: PrestadorService,
               private formBuilder: FormBuilder) {
     this.validationsPrest = formBuilder.group({
       nome: [
@@ -109,7 +110,11 @@ export class CadastroComponent implements OnInit {
                    senha: HTMLInputElement, horario: HTMLInputElement) {
 
     let prest = new Prestador(nome.value, cpf.value, dataNasc.value, horario.value,
-      tell.value, senha.value, email.value, rua.value, bairro.value, cep.value, num.value);
+      tell.value, senha.value, email.value);
+
+    let endereco = new Endereco(rua.value, bairro.value, cep.value, num.value);
+
+    prest.endereco = endereco;
 
     this.prestadores.push(prest);
 
@@ -126,13 +131,16 @@ export class CadastroComponent implements OnInit {
                  senha: HTMLInputElement, nomeDog: HTMLInputElement, racaDog: HTMLInputElement,
                  pesoDog: HTMLInputElement, porteDog: HTMLSelectElement) {
 
-    let client = new Cliente(nome.value, cpf.value, dataNasc.value, tell.value, senha.value, email.value,
-      rua.value, bairro.value, cep.value, num.value);
+    let client = new Cliente(nome.value, cpf.value, dataNasc.value, tell.value, senha.value, email.value);
 
     let dog = new Cachorro(nomeDog.value, Number.parseInt(pesoDog.value),
       porteDog.options[porteDog.selectedIndex].value, racaDog.value);
 
-    client.cachorros.push(dog);
+    let endereco = new Endereco(rua.value, bairro.value, cep.value, num.value);
+
+    client.cachorros = dog;
+    client.endereco = endereco;
+    dog.dono = client;
 
     this.clientes.push(client);
     this.clienteService.inserirCliente(client);
