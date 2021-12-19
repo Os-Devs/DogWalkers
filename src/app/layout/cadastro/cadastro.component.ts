@@ -1,11 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Cliente } from "../../shared/model/cliente";
-import { Prestador } from "../../shared/model/prestador";
-import { Cachorro } from "../../shared/model/cachorro";
-import { ClienteService } from "../../shared/service/serviceCliente/cliente.service";
-import { PrestadorService } from "../../shared/service/servicePrestador/prestador.service";
-import { Endereco } from "../../shared/model/endereco";
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import {Cliente} from "../../shared/model/cliente";
+import {Prestador} from "../../shared/model/prestador";
+import {Cachorro} from "../../shared/model/cachorro";
+import {ClienteService} from "../../shared/service/serviceCliente/cliente.service";
+import {PrestadorService} from "../../shared/service/servicePrestador/prestador.service";
+import {Endereco} from "../../shared/model/endereco";
+import {CachorroService} from "../../shared/service/serviceCachorro/cachorro.service";
+import {EnderecoService} from "../../shared/service/serviceEndereco/endereco.service";
 
 
 @Component({
@@ -23,7 +25,7 @@ export class CadastroComponent implements OnInit {
   validationsPrest: FormGroup;
   validationsCli: FormGroup;
 
-  constructor(private clienteService: ClienteService, private prestadorService: PrestadorService,
+  constructor(private clienteService: ClienteService, private prestadorService: PrestadorService, private enderecoService: EnderecoService, private cachorroService: CachorroService,
               private formBuilder: FormBuilder) {
     this.validationsPrest = formBuilder.group({
       nome: [
@@ -112,9 +114,7 @@ export class CadastroComponent implements OnInit {
     let prest = new Prestador(nome.value, cpf.value, dataNasc.value, horario.value,
       tell.value, senha.value, email.value);
 
-    let endereco = new Endereco(rua.value, bairro.value, cep.value, num.value);
-
-    prest.endereco = endereco;
+    prest.endereco = new Endereco(rua.value, bairro.value, cep.value, num.value);
 
     this.prestadores.push(prest);
 
@@ -143,12 +143,13 @@ export class CadastroComponent implements OnInit {
 
     let dog = new Cachorro(nomeDog.value, Number.parseInt(pesoDog.value),
       porteDog.options[porteDog.selectedIndex].value, racaDog.value);
+    this.cachorroService.inserirCachorro(dog).subscribe();
 
     let endereco = new Endereco(rua.value, bairro.value, cep.value, num.value);
+    this.enderecoService.inserirEndereco(endereco).subscribe();
 
     client.cachorros = dog;
     client.endereco = endereco;
-    dog.dono = client;
 
     this.clientes.push(client);
     this.clienteService.inserirCliente(client).subscribe();
