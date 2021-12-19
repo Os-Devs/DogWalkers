@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CadastroComponent } from "./layout/cadastro/cadastro.component";
 import { PrincipalComponent } from "./layout/principal/principal.component";
+import {PerfilComponent} from "./layout/perfil/perfil.component";
 
 const routes: Routes = [
   {
@@ -11,9 +12,11 @@ const routes: Routes = [
   {
     path: "cadastros",
     component: CadastroComponent
+  },
+  {
+    path: "perfil",
+    component: PerfilComponent
   }
-  // path: "",
-  // component: null;
 ];
 
 @NgModule({

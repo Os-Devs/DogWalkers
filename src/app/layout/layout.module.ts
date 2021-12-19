@@ -28,7 +28,8 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatExpansionModule} from '@angular/material/expansion';
-
+import { PerfilComponent } from './perfil/perfil.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     CadastroComponent,
     ComentariosComponent,
     PrincipalComponent,
-    FooterComponent
+    FooterComponent,
+    PerfilComponent
   ],
   imports: [
     CommonModule,
@@ -67,7 +69,8 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatDatepickerModule,
     MatNativeDateModule,
     MatDividerModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatToolbarModule
   ],
   exports: [
     MenuComponent,
