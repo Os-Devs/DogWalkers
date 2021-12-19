@@ -90,9 +90,6 @@ export class CadastroComponent implements OnInit {
       ],
       senha: [
         '', [Validators.required, Validators.minLength(6)]
-      ],
-      horario: [
-        '', [Validators.required, Validators.pattern("[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}")]
       ]
     });
   }

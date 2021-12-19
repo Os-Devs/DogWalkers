@@ -28,6 +28,8 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatExpansionModule} from '@angular/material/expansion';
+import { LoginComponent } from './login/login.component';
+import { LoginValidacaoComponent } from './login-validacao/login-validacao.component';
 
 
 @NgModule({
@@ -40,7 +42,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
     CadastroComponent,
     ComentariosComponent,
     PrincipalComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
+    LoginValidacaoComponent
   ],
   imports: [
     CommonModule,
@@ -77,7 +81,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
     PlanosDetalhesComponent,
     CadastroComponent,
     ComentariosComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
+    LoginValidacaoComponent
   ]
 })
 export class LayoutModule { }
