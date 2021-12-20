@@ -10,8 +10,7 @@ export class ClienteService {
 
   URL_CLIENTE = "http://localhost:8080/clientes";
 
-  constructor(private httpClient: HttpClient) {
-  }
+  constructor(private httpClient: HttpClient) { }
 
   listarClientes(): Observable<Cliente[]> {
     return this.httpClient.get<Cliente[]>(this.URL_CLIENTE);
