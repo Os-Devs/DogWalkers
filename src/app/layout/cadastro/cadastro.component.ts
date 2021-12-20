@@ -153,11 +153,7 @@ export class CadastroComponent implements OnInit {
       porteDog.options[porteDog.selectedIndex].value, racaDog.value);
     this.cachorroService.inserirCachorro(dog).subscribe();
 
-    this.cachorroService.inserirCachorro(dog).subscribe();
-
     let endereco = new Endereco(rua.value, bairro.value, cep.value, num.value);
-    this.enderecoService.inserirEndereco(endereco).subscribe();
-
     this.enderecoService.inserirEndereco(endereco).subscribe();
 
     client.cachorros = dog;
