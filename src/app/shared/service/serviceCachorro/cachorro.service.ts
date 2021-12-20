@@ -19,4 +19,12 @@ export class CachorroService {
   inserirCachorro(dog: Cachorro): Observable<Cachorro> {
     return this.httpClient.post<Cachorro>(this.URL_CACHORRO, dog);
   }
+
+  removerCachorro(id: number): Observable<object> {
+    return this.httpClient.delete(`${this.URL_CACHORRO}/${id}`);
+  }
+
+  atualizarCachorro(dog: Cachorro): Observable<Cachorro> {
+    return this.httpClient.put<Cachorro>(`${this.URL_CACHORRO}/${dog.id}`, dog);
+  }
 }

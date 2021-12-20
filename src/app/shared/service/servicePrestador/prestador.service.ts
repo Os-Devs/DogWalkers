@@ -19,4 +19,12 @@ export class PrestadorService {
   inserirPrestador(prestador: Prestador): Observable<Prestador> {
     return this.httpClient.post<Prestador>(this.URL_PRESTADOR, prestador);
   }
+
+  removerPrestador(id: number): Observable<object> {
+    return this.httpClient.delete(`${this.URL_PRESTADOR}/${id}`);
+  }
+
+  atualizarPrestador(prestador: Prestador): Observable<Prestador> {
+    return this.httpClient.put<Prestador>(`${this.URL_PRESTADOR}/${prestador.id}`, prestador);
+  }
 }

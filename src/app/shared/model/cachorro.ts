@@ -1,11 +1,9 @@
-import {Cliente} from "./cliente";
-
 export class Cachorro {
+  public id: number;
   public nome: string;
   public peso: number;
   public porte: string;
   public raca: string;
-  public dono: Cliente;
 
   constructor(nome: string, peso: number, porte: string, raca: string) {
     this.nome = nome;

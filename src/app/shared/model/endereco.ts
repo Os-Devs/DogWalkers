@@ -1,4 +1,5 @@
 export class Endereco {
+  public id: number;
   public rua: string;
   public bairro: string;
   public cep: string;
