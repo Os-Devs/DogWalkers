@@ -2,6 +2,7 @@ import { Cachorro } from "./cachorro";
 import { Endereco } from "./endereco";
 
 export class Cliente {
+  public id: number;
   public nome: string;
   private cpf: string;
   public dataNasc: string;

@@ -1,13 +1,13 @@
-import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Cliente} from "../../shared/model/cliente";
-import {Prestador} from "../../shared/model/prestador";
-import {Cachorro} from "../../shared/model/cachorro";
-import {ClienteService} from "../../shared/service/serviceCliente/cliente.service";
-import {PrestadorService} from "../../shared/service/servicePrestador/prestador.service";
-import {Endereco} from "../../shared/model/endereco";
-import {CachorroService} from "../../shared/service/serviceCachorro/cachorro.service";
-import {EnderecoService} from "../../shared/service/serviceEndereco/endereco.service";
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { Cliente } from "../../shared/model/cliente";
+import { Prestador } from "../../shared/model/prestador";
+import { Cachorro } from "../../shared/model/cachorro";
+import { ClienteService } from "../../shared/service/serviceCliente/cliente.service";
+import { PrestadorService } from "../../shared/service/servicePrestador/prestador.service";
+import { Endereco } from "../../shared/model/endereco";
+import { EnderecoService } from "../../shared/service/serviceEndereco/endereco.service";
+import { CachorroService } from "../../shared/service/serviceCachorro/cachorro.service";
 
 
 @Component({
@@ -25,8 +25,9 @@ export class CadastroComponent implements OnInit {
   validationsPrest: FormGroup;
   validationsCli: FormGroup;
 
-  constructor(private clienteService: ClienteService, private prestadorService: PrestadorService, private enderecoService: EnderecoService, private cachorroService: CachorroService,
-              private formBuilder: FormBuilder) {
+  constructor(private clienteService: ClienteService, private prestadorService: PrestadorService,
+              private formBuilder: FormBuilder, private enderecoService: EnderecoService,
+              private cachorroService: CachorroService) {
     this.validationsPrest = formBuilder.group({
       nome: [
         '', Validators.required
@@ -114,11 +115,16 @@ export class CadastroComponent implements OnInit {
     let prest = new Prestador(nome.value, cpf.value, dataNasc.value, horario.value,
       tell.value, senha.value, email.value);
 
-    prest.endereco = new Endereco(rua.value, bairro.value, cep.value, num.value);
+    this.prestadorService.inserirPrestador(prest).subscribe();
+
+    let endereco = new Endereco(rua.value, bairro.value, cep.value, num.value);
+
+    this.enderecoService.inserirEndereco(endereco).subscribe();
+
+    prest.endereco = endereco;
 
     this.prestadores.push(prest);
-
-    this.prestadorService.inserirPrestador(prest).subscribe();
+    this.prestadorService.atualizarPrestador(prest);
 
     nome.value = "";
     cpf.value = "";
@@ -141,18 +147,24 @@ export class CadastroComponent implements OnInit {
 
     let client = new Cliente(nome.value, cpf.value, dataNasc.value, tell.value, senha.value, email.value);
 
+    this.clienteService.inserirCliente(client).subscribe();
+
     let dog = new Cachorro(nomeDog.value, Number.parseInt(pesoDog.value),
       porteDog.options[porteDog.selectedIndex].value, racaDog.value);
     this.cachorroService.inserirCachorro(dog).subscribe();
 
+    this.cachorroService.inserirCachorro(dog).subscribe();
+
     let endereco = new Endereco(rua.value, bairro.value, cep.value, num.value);
+    this.enderecoService.inserirEndereco(endereco).subscribe();
+
     this.enderecoService.inserirEndereco(endereco).subscribe();
 
     client.cachorros = dog;
     client.endereco = endereco;
 
     this.clientes.push(client);
-    this.clienteService.inserirCliente(client).subscribe();
+    this.clienteService.atualizarCliente(client).subscribe();
 
     nome.value = "";
     cpf.value = "";
