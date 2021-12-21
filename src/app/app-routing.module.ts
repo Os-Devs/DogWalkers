@@ -4,6 +4,7 @@ import { CadastroComponent } from "./layout/cadastro/cadastro.component";
 import { PrincipalComponent } from "./layout/principal/principal.component";
 import {LoginComponent} from "./layout/login/login.component";
 import {LoginValidacaoComponent} from "./layout/login-validacao/login-validacao.component";
+import {PerfilComponent} from "./layout/perfil/perfil.component";
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   {
     path: "validacao",
     component: LoginValidacaoComponent
+  },
+  {
+    path: "perfil",
+    component: PerfilComponent
   }
 ];
 

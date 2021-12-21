@@ -30,7 +30,8 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatExpansionModule} from '@angular/material/expansion';
 import { LoginComponent } from './login/login.component';
 import { LoginValidacaoComponent } from './login-validacao/login-validacao.component';
-
+import { PerfilComponent } from './perfil/perfil.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
 
 @NgModule({
   declarations: [
@@ -44,7 +45,8 @@ import { LoginValidacaoComponent } from './login-validacao/login-validacao.compo
     PrincipalComponent,
     FooterComponent,
     LoginComponent,
-    LoginValidacaoComponent
+    LoginValidacaoComponent,
+    PerfilComponent
   ],
   imports: [
     CommonModule,
@@ -71,7 +73,8 @@ import { LoginValidacaoComponent } from './login-validacao/login-validacao.compo
     MatDatepickerModule,
     MatNativeDateModule,
     MatDividerModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatToolbarModule
   ],
   exports: [
     MenuComponent,
