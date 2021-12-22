@@ -1,0 +1,27 @@
+<app-menu></app-menu>
+
+<mat-form-field>
+  <mat-label>Filtro</mat-label>
+  <input matInput placeholder="filtre por qualquer campo" (keyup)="filtrar(inputFiltro.value)" #inputFiltro>
+</mat-form-field>
+
+<mat-table [dataSource]="dataSource">
+  <mat-header-row *matHeaderRowDef="mostrarColunas"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: mostrarColunas;"></mat-row>
+
+  <ng-container matColumnDef="nome">
+    <mat-header-cell *matHeaderCellDef>Nome</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{item.nome}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="endereco">
+    <mat-header-cell *matHeaderCellDef>Endereço</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{item.endereco}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="cachorro">
+    <mat-header-cell *matHeaderCellDef>Cachorro</mat-header-cell>
+    <mat-cell *matCellDef="let item">{{item.cachorro}}</mat-cell>
+  </ng-container>
+
+</mat-table>

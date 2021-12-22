@@ -5,6 +5,9 @@ import { PrincipalComponent } from "./layout/principal/principal.component";
 import {LoginComponent} from "./layout/login/login.component";
 import {LoginValidacaoComponent} from "./layout/login-validacao/login-validacao.component";
 import {PerfilComponent} from "./layout/perfil/perfil.component";
+import {ClientesCadastradosComponent} from "./layout/clientes-cadastrados/clientes-cadastrados.component";
+import {PrestadoresCadastradosComponent} from "./layout/prestadores-cadastrados/prestadores-cadastrados.component";
+
 
 const routes: Routes = [
   {
@@ -26,6 +29,14 @@ const routes: Routes = [
   {
     path: "perfil",
     component: PerfilComponent
+  },
+  {
+    path: "clientes-cadastrados",
+    component: ClientesCadastradosComponent
+  },
+  {
+    path: "prestadores-cadastrados",
+    component: PrestadoresCadastradosComponent
   }
 ];
 

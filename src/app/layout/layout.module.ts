@@ -32,6 +32,9 @@ import { LoginComponent } from './login/login.component';
 import { LoginValidacaoComponent } from './login-validacao/login-validacao.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import {MatToolbarModule} from "@angular/material/toolbar";
+import { ClientesCadastradosComponent } from './clientes-cadastrados/clientes-cadastrados.component';
+import { PrestadoresCadastradosComponent } from './prestadores-cadastrados/prestadores-cadastrados.component';
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -46,7 +49,9 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     FooterComponent,
     LoginComponent,
     LoginValidacaoComponent,
-    PerfilComponent
+    PerfilComponent,
+    ClientesCadastradosComponent,
+    PrestadoresCadastradosComponent
   ],
   imports: [
     CommonModule,
@@ -74,7 +79,8 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     MatNativeDateModule,
     MatDividerModule,
     MatExpansionModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatTableModule
   ],
   exports: [
     MenuComponent,
@@ -86,7 +92,9 @@ import {MatToolbarModule} from "@angular/material/toolbar";
     ComentariosComponent,
     FooterComponent,
     LoginComponent,
-    LoginValidacaoComponent
+    LoginValidacaoComponent,
+    ClientesCadastradosComponent,
+    PrestadoresCadastradosComponent
   ]
 })
 export class LayoutModule { }

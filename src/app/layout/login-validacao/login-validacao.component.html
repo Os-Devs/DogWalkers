@@ -10,6 +10,7 @@
             matInput
             placeholder="Email"
             formControlName="email"
+            (change)="validarLogin(emailLogin.value, senhaLogin.value)"
           >
           <mat-error *ngIf="validationsLogin.controls.email.hasError('required')">
             Email é necessário
@@ -26,6 +27,7 @@
             matInput
             placeholder="Senha"
             type="password"
+            (change)="validarLogin(emailLogin.value, senhaLogin.value)"
             [type]="hide1 ? 'password' : 'text'"
             formControlName="senha"
           >
@@ -40,7 +42,7 @@
             <mat-icon>{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
           </button>
         </mat-form-field>
-        <button [routerLink]="['/perfil']" class="login-button" mat-raised-button color="accent" [disabled]="validationsLogin.invalid">
+        <button (click)="limparLogin(emailLogin, senhaLogin)" [routerLink]="['/perfil']" class="login-button" mat-raised-button color="accent" [disabled]="validationsLogin.invalid">
           <mat-icon>add</mat-icon>
         </button>
       </form>
