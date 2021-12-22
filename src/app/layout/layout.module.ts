@@ -28,7 +28,13 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from '@angular/material/core';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatExpansionModule} from '@angular/material/expansion';
-
+import { LoginComponent } from './login/login.component';
+import { LoginValidacaoComponent } from './login-validacao/login-validacao.component';
+import { PerfilComponent } from './perfil/perfil.component';
+import {MatToolbarModule} from "@angular/material/toolbar";
+import { ClientesCadastradosComponent } from './clientes-cadastrados/clientes-cadastrados.component';
+import { PrestadoresCadastradosComponent } from './prestadores-cadastrados/prestadores-cadastrados.component';
+import {MatTableModule} from "@angular/material/table";
 
 @NgModule({
   declarations: [
@@ -40,7 +46,12 @@ import {MatExpansionModule} from '@angular/material/expansion';
     CadastroComponent,
     ComentariosComponent,
     PrincipalComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
+    LoginValidacaoComponent,
+    PerfilComponent,
+    ClientesCadastradosComponent,
+    PrestadoresCadastradosComponent
   ],
   imports: [
     CommonModule,
@@ -67,7 +78,9 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatDatepickerModule,
     MatNativeDateModule,
     MatDividerModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatToolbarModule,
+    MatTableModule
   ],
   exports: [
     MenuComponent,
@@ -77,7 +90,11 @@ import {MatExpansionModule} from '@angular/material/expansion';
     PlanosDetalhesComponent,
     CadastroComponent,
     ComentariosComponent,
-    FooterComponent
+    FooterComponent,
+    LoginComponent,
+    LoginValidacaoComponent,
+    ClientesCadastradosComponent,
+    PrestadoresCadastradosComponent
   ]
 })
 export class LayoutModule { }

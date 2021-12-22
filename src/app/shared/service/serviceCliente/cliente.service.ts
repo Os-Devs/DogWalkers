@@ -8,10 +8,9 @@ import { Cliente } from "../../model/cliente";
 })
 export class ClienteService {
 
-  URL_CLIENTE = "http://localhost:3000/clientes";
+  URL_CLIENTE = "http://localhost:8080/clientes";
 
-  constructor(private httpClient: HttpClient) {
-  }
+  constructor(private httpClient: HttpClient) { }
 
   listarClientes(): Observable<Cliente[]> {
     return this.httpClient.get<Cliente[]>(this.URL_CLIENTE);
@@ -19,5 +18,13 @@ export class ClienteService {
 
   inserirCliente(cliente: Cliente): Observable<Cliente> {
     return this.httpClient.post<Cliente>(this.URL_CLIENTE, cliente);
+  }
+
+  removerCliente(id: number): Observable<object> {
+    return this.httpClient.delete(`${this.URL_CLIENTE}/${id}`);
+  }
+
+  atualizarCliente(client: Cliente): Observable<Cliente> {
+    return this.httpClient.put<Cliente>(`${this.URL_CLIENTE}/${client.id}`, client);
   }
 }

@@ -1,4 +1,5 @@
 export class Comentario {
+  public id: number;
   public email: string;
   public conteudo: string;
 

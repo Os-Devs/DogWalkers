@@ -8,7 +8,7 @@ import { Comentario } from "../../model/comentario";
 })
 export class ComentarioService {
 
-  URL_COMENTARIO = "http://localhost:3000/comentarios";
+  URL_COMENTARIO = "http://localhost:8080/comentarios";
 
   constructor(private httpClient: HttpClient) {
   }
@@ -19,5 +19,13 @@ export class ComentarioService {
 
   inserirComentario(comentario: Comentario): Observable<Comentario> {
     return this.httpClient.post<Comentario>(this.URL_COMENTARIO, comentario);
+  }
+
+  removerComentario(id: number): Observable<object> {
+    return this.httpClient.delete(`${this.URL_COMENTARIO}/${id}`);
+  }
+
+  atualizarComentario(comentario: Comentario): Observable<Comentario> {
+    return this.httpClient.put<Comentario>(`${this.URL_COMENTARIO}/${comentario.id}`, comentario);
   }
 }

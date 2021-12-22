@@ -43,11 +43,11 @@
               <input
                 #dataNascPrest
                 matInput
-                [matDatepicker]="picker"
+                [matDatepicker]="picker1"
                 formControlName="dataNasc"
               >
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
+              <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+              <mat-datepicker #picker1></mat-datepicker>
               <mat-error *ngIf="validationsPrest.controls.dataNasc.hasError('required')">
                 Data de nascimento é necessário
               </mat-error>
@@ -261,11 +261,11 @@
               <input
                 #dataNascCli
                 matInput
-                [matDatepicker]="picker"
+                [matDatepicker]="picker2"
                 formControlName="dataNasc"
               >
-              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-              <mat-datepicker #picker></mat-datepicker>
+              <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+              <mat-datepicker #picker2></mat-datepicker>
               <mat-error *ngIf="validationsCli.controls.dataNasc.hasError('required')">
                 Data de nascimento é necessário
               </mat-error>
@@ -387,11 +387,11 @@
               <div class="container">
                 <mat-form-field>
                   <mat-label>Porte</mat-label>
-                  <mat-select #portePet>
-                    <mat-option value="Pequeno">Pequeno</mat-option>
-                    <mat-option value="Médio">Médio</mat-option>
-                    <mat-option value="Grande">Grande</mat-option>
-                  </mat-select>
+                  <select matNativeControl #portePet>
+                    <option value="Pequeno">Pequeno</option>
+                    <option value="Médio">Médio</option>
+                    <option value="Grande">Grande</option>
+                  </select>
                 </mat-form-field>
                 <mat-form-field>
                   <input
@@ -430,7 +430,7 @@
                 matInput
                 placeholder="Senha"
                 type="password"
-                [type]="hide1 ? 'password' : 'text'"
+                [type]="hide2 ? 'password' : 'text'"
                 formControlName="senha"
               >
               <mat-error *ngIf="validationsCli.controls.senha.hasError('required')">
@@ -439,8 +439,8 @@
               <mat-error *ngIf="validationsCli.controls.senha.hasError('minlength')">
                 Tamanho de senha minima é 6 caracteres
               </mat-error>
-              <button mat-icon-button matSuffix (click)="hide1 = !hide1" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide1">
-                <mat-icon>{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+              <button mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide2">
+                <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
               </button>
             </mat-form-field>
 <!--            <mat-form-field>-->
@@ -466,7 +466,8 @@
               mat-raised-button
               color="accent"
               class="login-button"
-              (click)="inserirCliente()"
+              (click)="inserirCliente(nomeCli, cpfCli, dataNascCli, telefoneCli, ruaCli, bairroCli,
+              numeroCli, cepCli, emailCli, senhaCli, nomePet, racaPet, pesoPet, portePet)"
               [disabled]="validationsCli.invalid"
             >
               <mat-icon>add</mat-icon>

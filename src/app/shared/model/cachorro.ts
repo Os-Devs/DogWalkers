@@ -1,4 +1,5 @@
 export class Cachorro {
+  public id: number;
   public nome: string;
   public peso: number;
   public porte: string;

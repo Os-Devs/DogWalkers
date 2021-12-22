@@ -1,10 +1,11 @@
 export class Endereco {
+  public id: number;
   public rua: string;
   public bairro: string;
   public cep: string;
-  public numeroResidencia: number;
+  public numeroResidencia: string;
 
-  constructor(rua: string, bairro: string, cep: string, numero: number) {
+  constructor(rua: string, bairro: string, cep: string, numero: string) {
     this.rua = rua;
     this.bairro = bairro;
     this.cep = cep;

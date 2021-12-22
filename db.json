@@ -1,11 +1,5 @@
 {
   "clientes": [],
   "prestadores": [],
-  "comentarios": [
-    {
-      "email": "examplo@examplo.com",
-      "comentario": "Examplo de Comentario\n",
-      "id": 1
-    }
-  ]
+  "comentarios": []
 }

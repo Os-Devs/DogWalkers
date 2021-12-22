@@ -1,22 +1,30 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
-import { PrestadorServico } from "../../model/prestadorServico";
+import { Prestador } from "../../model/prestador";
 
 @Injectable({
   providedIn: 'root'
 })
 export class PrestadorService {
 
-  URL_PRESTADOR = "http://localhost:3000/prestadores";
+  URL_PRESTADOR = "http://localhost:8080/prestadores";
 
   constructor(private httpClient: HttpClient) { }
 
-  listarPrestador(): Observable<PrestadorServico[]> {
-    return this.httpClient.get<PrestadorServico[]>(this.URL_PRESTADOR);
+  listarPrestadores(): Observable<Prestador[]> {
+    return this.httpClient.get<Prestador[]>(this.URL_PRESTADOR);
   }
 
-  inserirPrestador(prestador: PrestadorServico): Observable<PrestadorServico> {
-    return this.httpClient.post<PrestadorServico>(this.URL_PRESTADOR, prestador);
+  inserirPrestador(prestador: Prestador): Observable<Prestador> {
+    return this.httpClient.post<Prestador>(this.URL_PRESTADOR, prestador);
+  }
+
+  removerPrestador(id: number): Observable<object> {
+    return this.httpClient.delete(`${this.URL_PRESTADOR}/${id}`);
+  }
+
+  atualizarPrestador(prestador: Prestador): Observable<Prestador> {
+    return this.httpClient.put<Prestador>(`${this.URL_PRESTADOR}/${prestador.id}`, prestador);
   }
 }

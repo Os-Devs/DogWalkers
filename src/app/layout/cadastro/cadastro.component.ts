@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from "@angular/forms";
+import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Cliente } from "../../shared/model/cliente";
-import { PrestadorServico } from "../../shared/model/prestadorServico";
+import { Prestador } from "../../shared/model/prestador";
 import { ClienteService } from "../../shared/service/serviceCliente/cliente.service";
 import { PrestadorService } from "../../shared/service/servicePrestador/prestador.service";
+
+
 
 @Component({
   selector: 'app-cadastro',
@@ -13,7 +15,7 @@ import { PrestadorService } from "../../shared/service/servicePrestador/prestado
 export class CadastroComponent implements OnInit {
   type: number;
   clientes = new Array<Cliente>();
-  prestadores = new Array<PrestadorServico>();
+  prestadores = new Array<Prestador>();
   hide1 = true;
   hide2 = true;
 
@@ -27,7 +29,7 @@ export class CadastroComponent implements OnInit {
         '', Validators.required
       ],
       email: [
-          '', [Validators.required, Validators.email]
+        '', [Validators.required, Validators.email]
       ],
       cpf: [
         '', [Validators.required, Validators.minLength(11)]
@@ -88,9 +90,6 @@ export class CadastroComponent implements OnInit {
       ],
       senha: [
         '', [Validators.required, Validators.minLength(6)]
-      ],
-      horario: [
-        '', [Validators.required, Validators.pattern("[0-2]{1}[0-9]{1}:[0-5]{1}[0-9]{1}")]
       ]
     });
   }
@@ -99,7 +98,7 @@ export class CadastroComponent implements OnInit {
     this.clienteService.listarClientes().subscribe(
       client => this.clientes = client
     );
-    this.prestadorService.listarPrestador().subscribe(
+    this.prestadorService.listarPrestadores().subscribe(
       prestador => this.prestadores = prestador
     );
   }
@@ -109,13 +108,79 @@ export class CadastroComponent implements OnInit {
                    num: HTMLInputElement, cep: HTMLInputElement, email: HTMLInputElement,
                    senha: HTMLInputElement, horario: HTMLInputElement) {
 
-    let prest = new PrestadorServico(nome.value, cpf.value, dataNasc.value, horario.value,
-      tell.value, senha.value, rua.value, bairro.value, cep.value, Number.parseInt(num.value));
+    let arrayendereco: string[] = [rua.value, bairro.value, cep.value, num.value];
+    let endereco = arrayendereco.join(' ')
 
+    let prest = new Prestador(nome.value, cpf.value, dataNasc.value, tell.value, email.value, senha.value, endereco, horario.value);
+
+    this.prestadorService.inserirPrestador(prest).subscribe();
+
+    // let endereco = new Endereco(rua.value, bairro.value, cep.value, num.value);
+    //
+    // this.enderecoService.inserirEndereco(endereco).subscribe();
+    //
+    // prest.endereco = endereco;
+
+    this.prestadores.push(prest);
+    this.prestadorService.atualizarPrestador(prest);
+
+    nome.value = "";
+    cpf.value = "";
+    dataNasc.value = "";
+    horario.value = "";
+    tell.value = "";
+    senha.value = "";
+    rua.value = "";
+    bairro.value = "";
+    cep.value = "";
+    num.value = "";
+    email.value = "";
 
   }
 
-  inserirCliente() {
+  inserirCliente(nome: HTMLInputElement, cpf: HTMLInputElement, dataNasc: HTMLInputElement,
+                 tell: HTMLInputElement, rua: HTMLInputElement, bairro: HTMLInputElement,
+                 num: HTMLInputElement, cep: HTMLInputElement, email: HTMLInputElement,
+                 senha: HTMLInputElement, nomeDog: HTMLInputElement, racaDog: HTMLInputElement,
+                 pesoDog: HTMLInputElement, porteDog: HTMLSelectElement) {
 
+    let arrayendereco: string[] = [rua.value, bairro.value, cep.value, num.value];
+    let endereco = arrayendereco.join(' ');
+
+    let arraycachorro: string[] = [nomeDog.value, pesoDog.value, porteDog.options[porteDog.selectedIndex].value, racaDog.value];
+    let cachorro = arraycachorro.join(' ');
+
+    let client = new Cliente(nome.value, cpf.value, dataNasc.value, tell.value, email.value, senha.value, endereco, cachorro);
+
+    this.clienteService.inserirCliente(client).subscribe();
+
+    // let dog = new Cachorro(nomeDog.value, Number.parseInt(pesoDog.value),
+    //   porteDog.options[porteDog.selectedIndex].value, racaDog.value);
+    // this.cachorroService.inserirCachorro(dog).subscribe();
+    //
+    // let endereco = new Endereco(rua.value, bairro.value, cep.value, num.value);
+    // this.enderecoService.inserirEndereco(endereco).subscribe();
+    //
+    // client.cachorros = dog;
+    // client.endereco = endereco;
+
+    this.clientes.push(client);
+    this.clienteService.atualizarCliente(client);
+
+    nome.value = "";
+    cpf.value = "";
+    dataNasc.value = "";
+    tell.value = "";
+    email.value = "";
+    senha.value = "";
+    rua.value = "";
+    bairro.value = "";
+    cep.value = "";
+    num.value = "";
+
+    nomeDog.value = "";
+    pesoDog.value = "";
+    porteDog.value = "";
+    racaDog.value = "";
   }
 }

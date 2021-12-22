@@ -1,24 +1,26 @@
-import { Cachorro } from "./cachorro";
-import { Endereco } from "./endereco";
+// import { Cachorro } from "./cachorro";
+// import { Endereco } from "./endereco";
 
 export class Cliente {
+  public id: number;
   public nome: string;
   private cpf: string;
   public dataNasc: string;
   public telefone: string;
+  public email: string;
   private senha: string;
-  public endereco: Endereco;
-  public cachorros: Array<Cachorro>;
+  public endereco: string;
+  public cachorro: string;
 
-  constructor(nome: string, cpf: string, nasc: string, telefone: string, senha: string,
-              rua: string, bairro: string, cep: string, numero: number) {
+  constructor(nome: string, cpf: string, nasc: string, telefone: string, email: string, senha: string, endereco: string, cachorro: string) {
     this.nome = nome;
     this.cpf = cpf;
     this.dataNasc = nasc;
     this.telefone = telefone;
+    this.email = email;
     this.senha = senha;
-    this.cachorros = new Array<Cachorro>();
-    this.endereco = new Endereco(rua, bairro, cep, numero);
+    this.endereco = endereco;
+    this.cachorro = cachorro;
   }
 
 //   get getNome(): string {
