@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import { Cliente } from "../../shared/model/cliente";
-import { ClienteService } from "../../shared/service/serviceCliente/cliente.service";
-import {ComentarioService} from "../../shared/service/serviceComentario/comentario.service";
-import {Comentario} from "../../shared/model/comentario";
-import {Route, Router} from "@angular/router";
+// import { Cliente } from "../../shared/model/cliente";
+// import { ClienteService } from "../../shared/service/serviceCliente/cliente.service";
 
 @Component({
   selector: 'app-login-validacao',
@@ -17,7 +14,9 @@ export class LoginValidacaoComponent implements OnInit {
 
   validationsLogin: FormGroup;
 
-  constructor(private cliente: Cliente ,private clienteService: ClienteService, private router: Router,private formBuilder: FormBuilder) {
+  constructor(//private cliente: Cliente,
+              // private clienteService: ClienteService,
+              private formBuilder: FormBuilder) {
 
     this.validationsLogin = formBuilder.group({
       email: [

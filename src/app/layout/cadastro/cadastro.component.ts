@@ -4,6 +4,8 @@ import { Cliente } from "../../shared/model/cliente";
 import { Prestador } from "../../shared/model/prestador";
 import { ClienteService } from "../../shared/service/serviceCliente/cliente.service";
 import { PrestadorService } from "../../shared/service/servicePrestador/prestador.service";
+import { MatSnackBar } from "@angular/material/snack-bar";
+
 
 
 
@@ -22,8 +24,11 @@ export class CadastroComponent implements OnInit {
   validationsPrest: FormGroup;
   validationsCli: FormGroup;
 
-  constructor(private clienteService: ClienteService, private prestadorService: PrestadorService,
+  constructor(private clienteService: ClienteService,
+              private prestadorService: PrestadorService,
+              private snackBar: MatSnackBar,
               private formBuilder: FormBuilder) {
+
     this.validationsPrest = formBuilder.group({
       nome: [
         '', Validators.required
@@ -103,6 +108,10 @@ export class CadastroComponent implements OnInit {
     );
   }
 
+  openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action);
+  }
+
   inserirPrestador(nome: HTMLInputElement, cpf: HTMLInputElement, dataNasc: HTMLInputElement,
                    tell: HTMLInputElement, rua: HTMLInputElement, bairro: HTMLInputElement,
                    num: HTMLInputElement, cep: HTMLInputElement, email: HTMLInputElement,
@@ -123,6 +132,7 @@ export class CadastroComponent implements OnInit {
 
     this.prestadores.push(prest);
     this.prestadorService.atualizarPrestador(prest);
+    this.openSnackBar(nome.value + ' cadastrado, informações do Prestador armazenadas.', 'OK');
 
     nome.value = "";
     cpf.value = "";
@@ -166,6 +176,8 @@ export class CadastroComponent implements OnInit {
 
     this.clientes.push(client);
     this.clienteService.atualizarCliente(client);
+
+    this.openSnackBar(nome.value + ' cadastrado, informações do Dono de Pet armazenadas.', 'OK');
 
     nome.value = "";
     cpf.value = "";
