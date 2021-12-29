@@ -24,17 +24,18 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { PrincipalComponent } from './principal/principal.component';
 import { FooterComponent } from './footer/footer.component';
-import {MatDatepickerModule} from "@angular/material/datepicker";
-import {MatNativeDateModule} from '@angular/material/core';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatExpansionModule} from '@angular/material/expansion';
-import { LoginComponent } from './login/login.component';
+import { MatDatepickerModule } from "@angular/material/datepicker";
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { LoginComponent  } from './login/login.component';
 import { LoginValidacaoComponent } from './login-validacao/login-validacao.component';
 import { PerfilComponent } from './perfil/perfil.component';
-import {MatToolbarModule} from "@angular/material/toolbar";
+import { MatToolbarModule } from "@angular/material/toolbar";
 import { ClientesCadastradosComponent } from './clientes-cadastrados/clientes-cadastrados.component';
 import { PrestadoresCadastradosComponent } from './prestadores-cadastrados/prestadores-cadastrados.component';
-import {MatTableModule} from "@angular/material/table";
+import { MatTableModule } from "@angular/material/table";
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import {MatTableModule} from "@angular/material/table";
     MatDividerModule,
     MatExpansionModule,
     MatToolbarModule,
-    MatTableModule
+    MatTableModule,
+    MatSnackBarModule
   ],
   exports: [
     MenuComponent,
@@ -93,6 +95,7 @@ import {MatTableModule} from "@angular/material/table";
     FooterComponent,
     LoginComponent,
     LoginValidacaoComponent,
+    PerfilComponent,
     ClientesCadastradosComponent,
     PrestadoresCadastradosComponent
   ]
