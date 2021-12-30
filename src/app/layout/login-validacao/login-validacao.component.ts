@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-// import { Cliente } from "../../shared/model/cliente";
-// import { ClienteService } from "../../shared/service/serviceCliente/cliente.service";
+
 
 @Component({
   selector: 'app-login-validacao',
@@ -14,10 +13,7 @@ export class LoginValidacaoComponent implements OnInit {
 
   validationsLogin: FormGroup;
 
-  constructor(//private cliente: Cliente,
-              // private clienteService: ClienteService,
-              private formBuilder: FormBuilder) {
-
+  constructor(private formBuilder: FormBuilder) {
     this.validationsLogin = formBuilder.group({
       email: [
         '', [Validators.required, Validators.email]
@@ -30,13 +26,6 @@ export class LoginValidacaoComponent implements OnInit {
 
 
   ngOnInit(): void {
-  }
-
-
-  validarLogin(email: string, senha: string) {
-    console.log('mudou')
-    //this.clienteService.pesquisarClientePorEmail(email).subscribe();
-    //this.router.navigate(['perfil', id])
   }
 
   limparLogin(elementLogin: HTMLInputElement, elementSenha: HTMLInputElement) {
