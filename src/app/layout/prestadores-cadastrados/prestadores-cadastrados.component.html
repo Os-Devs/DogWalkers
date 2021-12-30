@@ -1,7 +1,7 @@
 <app-menu></app-menu>
 <div class="tabela-page">
   <mat-card class="mat-elevation-z12">
-    <mat-card-header><h1>Prestadores Cadastrados</h1></mat-card-header>
+    <mat-card-title style="text-align:center;"><h1>Prestadores Cadastrados</h1></mat-card-title>
 <mat-form-field>
   <mat-label>Filtro</mat-label>
   <input matInput placeholder="filtre por qualquer campo" (keyup)="filtrar(inputFiltro.value)" #inputFiltro>
@@ -24,6 +24,17 @@
   <ng-container matColumnDef="horarioDisponibilidade">
     <mat-header-cell *matHeaderCellDef>Horario de Disponibilidade</mat-header-cell>
     <mat-cell *matCellDef="let item">{{item.horarioDisponibilidade}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="opcoes">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let item">
+      <button mat-icon-button>
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button>
+        <mat-icon (click)="apagarPrestador(item)">delete</mat-icon>
+      </button></mat-cell>
   </ng-container>
 
 </mat-table>

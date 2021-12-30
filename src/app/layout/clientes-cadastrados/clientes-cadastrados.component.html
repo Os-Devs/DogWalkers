@@ -1,7 +1,7 @@
 <app-menu></app-menu>
 <div class="tabela-page">
   <mat-card class="mat-elevation-z12">
-    <mat-card-header><h1>Clientes Cadastrados</h1></mat-card-header>
+    <mat-card-title style="text-align:center;"><h1>Clientes Cadastrados</h1></mat-card-title>
 <mat-form-field>
   <mat-label>Filtro</mat-label>
   <input matInput placeholder="filtre por qualquer campo" (keyup)="filtrar(inputFiltro.value)" #inputFiltro>
@@ -24,6 +24,17 @@
   <ng-container matColumnDef="cachorro">
     <mat-header-cell *matHeaderCellDef>Cachorro</mat-header-cell>
     <mat-cell *matCellDef="let item">{{item.cachorro}}</mat-cell>
+  </ng-container>
+
+  <ng-container matColumnDef="opcoes">
+    <mat-header-cell *matHeaderCellDef></mat-header-cell>
+    <mat-cell *matCellDef="let item">
+      <button mat-icon-button>
+      <mat-icon>edit</mat-icon>
+    </button>
+      <button mat-icon-button>
+        <mat-icon (click)="apagarCliente(item)">delete</mat-icon>
+      </button></mat-cell>
   </ng-container>
 
 </mat-table>

@@ -10,8 +10,9 @@ import {MatTableDataSource} from "@angular/material/table";
   styleUrls: ['./clientes-cadastrados.component.scss']
 })
 export class ClientesCadastradosComponent implements OnInit {
+
   dataSource: MatTableDataSource<Cliente>;
-  mostrarColunas = ['nome', 'endereco', 'cachorro'];
+  mostrarColunas = ['nome', 'endereco', 'cachorro', 'opcoes'];
 
   constructor(private clienteService: ClienteService) { }
 
@@ -23,6 +24,15 @@ export class ClientesCadastradosComponent implements OnInit {
 
   filtrar(value: string) {
     this.dataSource.filter = value.trim().toLowerCase()
+  }
+
+  apagarCliente(cliente: Cliente) {
+    this.clienteService.removerCliente(cliente.id).subscribe();
+    const referenceComent = this.dataSource.data.indexOf(cliente);
+    if (referenceComent > -1) {
+      this.dataSource.data.splice(referenceComent, 1);
+      this.dataSource = new MatTableDataSource<Cliente>(this.dataSource.data);
+    }
   }
 
 }

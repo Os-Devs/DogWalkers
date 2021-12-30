@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Prestador} from "../../shared/model/prestador";
 import { MatTableDataSource } from "@angular/material/table";
 import {PrestadorService} from "../../shared/service/servicePrestador/prestador.service";
+import {Cliente} from "../../shared/model/cliente";
 
 @Component({
   selector: 'app-prestadores-cadastrados',
@@ -11,7 +12,7 @@ import {PrestadorService} from "../../shared/service/servicePrestador/prestador.
 export class PrestadoresCadastradosComponent implements OnInit {
 
   dataSource: MatTableDataSource<Prestador>;
-  mostrarColunas = ['nome', 'endereco', 'horarioDisponibilidade'];
+  mostrarColunas = ['nome', 'endereco', 'horarioDisponibilidade', 'opcoes'];
 
   constructor(private prestadorService: PrestadorService) { }
 
@@ -23,5 +24,14 @@ export class PrestadoresCadastradosComponent implements OnInit {
 
   filtrar(value: string) {
     this.dataSource.filter = value.trim().toLowerCase()
+  }
+
+  apagarPrestador(prestador: Prestador) {
+    this.prestadorService.removerPrestador(prestador.id).subscribe();
+    const referenceComent = this.dataSource.data.indexOf(prestador);
+    if (referenceComent > -1) {
+      this.dataSource.data.splice(referenceComent, 1);
+      this.dataSource = new MatTableDataSource<Prestador>(this.dataSource.data);
+    }
   }
 }
