@@ -39,7 +39,11 @@ mat-table {
   border-radius: 8px;
 }
 
- mat-header-cell {
+mat-header-row {
+  border-radius: 8px 8px 0 0;
+}
+
+mat-header-cell {
   font-size: 16px;
 }
 

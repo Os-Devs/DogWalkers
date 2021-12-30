@@ -1,4 +1,4 @@
-<div class="centralizar">
+<div id="comentarios" class="centralizar">
   <div class="example-container">
     <mat-card class="mat-elevation-z6">
       <mat-card-title>Comentários</mat-card-title>
@@ -35,15 +35,18 @@
 <div class="background-comment">
   <mat-card class="comment" *ngFor="let comentario of comentarios">
     <mat-card-title>{{comentario.email}}</mat-card-title>
-    <mat-card-subtitle>
+    <mat-card-content>
       {{comentario.conteudo}}
+    </mat-card-content>
       <br>
-      <button
-        mat-icon-button
-        (click)="deletarComentario(comentario)"
-      >
-        <mat-icon>delete</mat-icon></button>
-    </mat-card-subtitle>
+    <mat-card-actions align="end">
+      <button mat-icon-button (click)="editarComentario(comentario, mail, comment)">
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-icon-button (click)="deletarComentario(comentario)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card-actions>
   </mat-card>
 </div>
 

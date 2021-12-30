@@ -54,4 +54,15 @@ export class ComentariosComponent implements OnInit {
       this.comentarios.splice(referenceComent, 1);
     }
   }
+
+  editarComentario(comentario: Comentario, elementMail: HTMLInputElement, elementComment: HTMLTextAreaElement) {
+
+    if (elementMail && elementComment) {
+      comentario.email = elementMail.value;
+      comentario.conteudo = elementComment.value;
+
+      this.comentarioService.atualizarComentario(comentario).subscribe();
+    }
+
+  }
 }

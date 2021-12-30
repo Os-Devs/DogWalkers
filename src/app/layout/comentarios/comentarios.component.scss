@@ -54,3 +54,12 @@ mat-card-content {
   width: 80%;
   display: block;
 }
+
+.comment .mat-card-title {
+  font-weight: normal;
+}
+
+.comment .mat-card-content {
+  margin-bottom: 0;
+  text-align: center;
+}
