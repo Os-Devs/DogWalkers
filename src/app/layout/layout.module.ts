@@ -28,7 +28,7 @@ import { MatDatepickerModule } from "@angular/material/datepicker";
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { LoginComponent  } from './login/login.component';
+import { LoginComponent } from './login/login.component';
 import { LoginValidacaoComponent } from './login-validacao/login-validacao.component';
 import { PerfilComponent } from './perfil/perfil.component';
 import { MatToolbarModule } from "@angular/material/toolbar";

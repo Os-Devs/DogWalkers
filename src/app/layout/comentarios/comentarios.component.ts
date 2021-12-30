@@ -46,4 +46,12 @@ export class ComentariosComponent implements OnInit {
     elementMail.value = "";
     elementComment.value = "";
   }
+
+  deletarComentario(comentario: Comentario) {
+    this.comentarioService.removerComentario(comentario.id).subscribe();
+    const referenceComent = this.comentarios.indexOf(comentario);
+    if (referenceComent > -1) {
+      this.comentarios.splice(referenceComent, 1);
+    }
+  }
 }

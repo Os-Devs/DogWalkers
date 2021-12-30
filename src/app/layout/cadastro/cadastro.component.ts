@@ -6,9 +6,6 @@ import { ClienteService } from "../../shared/service/serviceCliente/cliente.serv
 import { PrestadorService } from "../../shared/service/servicePrestador/prestador.service";
 import { MatSnackBar } from "@angular/material/snack-bar";
 
-
-
-
 @Component({
   selector: 'app-cadastro',
   templateUrl: './cadastro.component.html',
@@ -123,15 +120,8 @@ export class CadastroComponent implements OnInit {
     let prest = new Prestador(nome.value, cpf.value, dataNasc.value, tell.value, email.value, senha.value, endereco, horario.value);
 
     this.prestadorService.inserirPrestador(prest).subscribe();
-
-    // let endereco = new Endereco(rua.value, bairro.value, cep.value, num.value);
-    //
-    // this.enderecoService.inserirEndereco(endereco).subscribe();
-    //
-    // prest.endereco = endereco;
-
     this.prestadores.push(prest);
-    this.prestadorService.atualizarPrestador(prest);
+
     this.openSnackBar(nome.value + ' cadastrado, informações do Prestador armazenadas.', 'OK');
 
     nome.value = "";
@@ -164,19 +154,7 @@ export class CadastroComponent implements OnInit {
 
     this.clienteService.inserirCliente(client).subscribe();
 
-    // let dog = new Cachorro(nomeDog.value, Number.parseInt(pesoDog.value),
-    //   porteDog.options[porteDog.selectedIndex].value, racaDog.value);
-    // this.cachorroService.inserirCachorro(dog).subscribe();
-    //
-    // let endereco = new Endereco(rua.value, bairro.value, cep.value, num.value);
-    // this.enderecoService.inserirEndereco(endereco).subscribe();
-    //
-    // client.cachorros = dog;
-    // client.endereco = endereco;
-
     this.clientes.push(client);
-    this.clienteService.atualizarCliente(client);
-
     this.openSnackBar(nome.value + ' cadastrado, informações do Dono de Pet armazenadas.', 'OK');
 
     nome.value = "";
