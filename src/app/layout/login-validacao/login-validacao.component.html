@@ -10,7 +10,6 @@
             matInput
             placeholder="Email"
             formControlName="email"
-            (change)="validarLogin(emailLogin.value, senhaLogin.value)"
           >
           <mat-error *ngIf="validationsLogin.controls.email.hasError('required')">
             Email é necessário
@@ -27,7 +26,6 @@
             matInput
             placeholder="Senha"
             type="password"
-            (change)="validarLogin(emailLogin.value, senhaLogin.value)"
             [type]="hide1 ? 'password' : 'text'"
             formControlName="senha"
           >
