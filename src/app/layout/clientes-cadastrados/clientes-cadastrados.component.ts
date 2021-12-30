@@ -35,4 +35,7 @@ export class ClientesCadastradosComponent implements OnInit {
     }
   }
 
+  editarCliente(cliente: Cliente) {
+    
+  }
 }

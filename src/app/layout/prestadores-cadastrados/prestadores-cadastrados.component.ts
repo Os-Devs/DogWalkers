@@ -34,4 +34,8 @@ export class PrestadoresCadastradosComponent implements OnInit {
       this.dataSource = new MatTableDataSource<Prestador>(this.dataSource.data);
     }
   }
+
+  editarPrestador(prestador: Prestador) {
+    
+  }
 }
