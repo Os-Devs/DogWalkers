@@ -4,19 +4,19 @@
       <mat-icon>more_vert</mat-icon>
     </button>
     <mat-menu #menu="matMenu">
-      <button mat-menu-item>
+      <button [routerLink]="['']" mat-menu-item>
+        <mat-icon>first_page</mat-icon>
+        <span>Pagina Inicial</span>
+      </button>
+      <button [routerLink]="['']" mat-menu-item>
         <mat-icon>paid</mat-icon>
         <span>Planos</span>
       </button>
-      <button mat-menu-item>
-        <mat-icon>pets</mat-icon>
-        <span>Serviços</span>
-      </button>
-      <button mat-menu-item>
+      <button [routerLink]="['']" mat-menu-item>
         <mat-icon>forum</mat-icon>
         <span>Comentários</span>
       </button>
-      <button mat-menu-item>
+      <button [routerLink]="['']" mat-menu-item>
         <mat-icon>public</mat-icon>
         <span>Social</span>
       </button>

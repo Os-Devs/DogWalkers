@@ -54,4 +54,8 @@ export class ComentariosComponent implements OnInit {
       this.comentarios.splice(referenceComent, 1);
     }
   }
+
+  editarComentario(comentario: Comentario) {
+
+  }
 }
