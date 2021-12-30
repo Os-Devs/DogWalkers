@@ -1,5 +1,7 @@
 <app-menu></app-menu>
-
+<div class="tabela-page">
+  <mat-card class="mat-elevation-z12">
+    <mat-card-header><h1>Clientes Cadastrados</h1></mat-card-header>
 <mat-form-field>
   <mat-label>Filtro</mat-label>
   <input matInput placeholder="filtre por qualquer campo" (keyup)="filtrar(inputFiltro.value)" #inputFiltro>
@@ -25,3 +27,5 @@
   </ng-container>
 
 </mat-table>
+    </mat-card>
+</div>

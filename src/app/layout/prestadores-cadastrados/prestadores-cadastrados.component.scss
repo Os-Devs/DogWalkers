@@ -1,0 +1,48 @@
+.tabela-page {
+  top: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 90vh;
+  height: fit-content;
+  display: block;
+  background-color: var(--blue-light);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+
+mat-card {
+  background-color: var(--blue-dark);
+  width: 90vw;
+  min-width: fit-content;
+  margin: 15vh auto;
+  border-radius: 8px;
+}
+
+mat-form-field {
+  background-color: var(--blue-darker);
+  width: 20vw;
+  display: block;
+  padding: 0 1rem 0 1rem;
+  margin: auto auto 1rem auto !important;
+  border-radius: 8px;
+}
+
+mat-table {
+  text-align: center;
+  background-color: var(--blue-darker);
+  width: 80vw;
+  min-width: fit-content;
+  margin: auto auto 2rem auto !important;
+  border-radius: 8px;
+}
+
+mat-header-cell {
+  font-size: 16px;
+}
+
+mat-row {
+  background-color: var(--blue-light);
+}
