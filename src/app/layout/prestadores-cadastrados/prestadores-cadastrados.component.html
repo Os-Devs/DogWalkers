@@ -2,12 +2,12 @@
 <div class="tabela-page">
   <mat-card class="mat-elevation-z12">
     <mat-card-title style="text-align:center;"><h1>Prestadores Cadastrados</h1></mat-card-title>
-<mat-form-field>
+<mat-form-field class="mat-elevation-z3">
   <mat-label>Filtro</mat-label>
   <input matInput placeholder="filtre por qualquer campo" (keyup)="filtrar(inputFiltro.value)" #inputFiltro>
 </mat-form-field>
 
-<mat-table [dataSource]="dataSource">
+<mat-table class="mat-elevation-z3" [dataSource]="dataSource">
   <mat-header-row *matHeaderRowDef="mostrarColunas"></mat-header-row>
   <mat-row *matRowDef="let row; columns: mostrarColunas;"></mat-row>
 
